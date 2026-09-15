@@ -53,15 +53,32 @@ export default function Contact() {
       return;
     }
 
-    const subject = `Quote request: ${form.space} (${form.finish})`;
+    const subject = `Quote Request – ${form.space} – ${form.finish}`;
+
     const body = [
-      `Name: ${form.name}`,
-      `Email: ${form.email}`,
-      form.phone && `Phone: ${form.phone}`,
-      `Space: ${form.space}`,
-      `Finish: ${form.finish}`,
-      "",
-      form.message,
+      `NEW QUOTE REQUEST`,
+      ``,
+      `━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+      `CUSTOMER DETAILS`,
+      `━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+      `Name:     ${form.name}`,
+      `Email:    ${form.email}`,
+      form.phone && `Phone:    ${form.phone}`,
+      ``,
+      `━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+      `PROJECT DETAILS`,
+      `━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+      `Space:    ${form.space}`,
+      `Finish:   ${form.finish}`,
+      ``,
+      `━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+      `CUSTOMER MESSAGE`,
+      `━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+      ``,
+      form.message || `No additional message provided.`,
+      ``,
+      `━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+      `Sent via the Chameleon website`,
     ]
       .filter(Boolean)
       .join("\n");

@@ -30,7 +30,7 @@ export default function Hero() {
         <motion.div style={{ clipPath: clip }} className="absolute inset-0">
           <Image
             src={IMAGES.afterHero}
-            alt="The same kitchen wrapped in matte charcoal vinyl"
+            alt="The same kitchen wrapped in matte grey vinyl"
             className="absolute inset-0 h-full w-full object-cover"
           />
         </motion.div>
@@ -44,11 +44,11 @@ export default function Hero() {
         </motion.div>
 
         <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black/85 via-black/40 to-transparent px-6 pb-24 pt-48 sm:px-10 lg:px-16">
-          <p className="font-mono text-[10px] tracking-[0.4em] text-white/80 sm:text-[11px]">
+          <p className="font-mono font-medium text-[10px] tracking-[0.4em] text-white/80 sm:text-[11px]">
             NEWCASTLE UPON TYNE — SURFACE TRANSFORMATION SPECIALISTS
           </p>
           <h1 className="mt-4 max-w-4xl font-display text-[clamp(2.6rem,8vw,6.5rem)] font-light leading-[0.95] tracking-[-0.02em] text-white">
-            We don&rsquo;t replace.
+            Your favourite space.
             <br />
             <span className="italic">Reimagined</span>
           </h1>

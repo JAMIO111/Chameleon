@@ -3,8 +3,8 @@ import { IMAGES } from "./images";
 
 const STATS = [
   { k: "10+", v: "years of combined vinyl-wrapping experience" },
-  { k: "5.0★", v: "average recomendation from 76 Facebook reviews" },
-  { k: "Zero", v: "kitchens ripped out and sent to landfill" },
+  { k: "100%", v: "average recomendation from 76 Facebook reviews" },
+  { k: "Infinite", v: "possibilities for transforming your space" },
 ];
 
 const TESTIMONIALS = [
