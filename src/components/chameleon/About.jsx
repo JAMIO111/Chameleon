@@ -99,24 +99,28 @@ export default function About() {
           Testimonials
         </h2>
 
-        <div className="mt-6 grid gap-6 md:grid-cols-2">
-          {TESTIMONIALS.map((t) => (
-            <figure key={t.name} className="border border-white/10 p-8">
-              <blockquote className="font-display text-lg font-light italic leading-relaxed text-white/90">
-                &ldquo;{t.quote}&rdquo;
-              </blockquote>
-              <div className="mt-4 flex gap-3 flex-row items-center">
-                <img
-                  src="recommends.png"
-                  alt={t.name}
-                  className="w-6 h-6 object-cover"
-                />
-                <figcaption className="font-mono text-[10px] tracking-[0.25em] text-white/40">
-                  {t.name.toUpperCase()} — {t.source.toUpperCase()}
-                </figcaption>
-              </div>
-            </figure>
-          ))}
+        <div className="relative mt-6 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]">
+          <div className="flex w-max gap-6 animate-marquee hover:[animation-play-state:paused] motion-reduce:animate-none">
+            {[...TESTIMONIALS, ...TESTIMONIALS].map((t, i) => (
+              <figure
+                key={`${t.name}-${i}`}
+                className="w-[320px] shrink-0 border border-white/10 p-8 sm:w-[420px]">
+                <blockquote className="font-display text-lg font-light italic leading-relaxed text-white/90">
+                  &ldquo;{t.quote}&rdquo;
+                </blockquote>
+                <div className="mt-4 flex gap-3 flex-row items-center">
+                  <img
+                    src="recommends.png"
+                    alt={t.name}
+                    className="w-6 h-6 object-cover"
+                  />
+                  <figcaption className="font-mono text-[10px] tracking-[0.25em] text-white/40">
+                    {t.name.toUpperCase()} — {t.source.toUpperCase()}
+                  </figcaption>
+                </div>
+              </figure>
+            ))}
+          </div>
         </div>
       </div>
     </section>
