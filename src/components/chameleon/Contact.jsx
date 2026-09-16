@@ -18,6 +18,34 @@ const SPACES = [
 
 const FINISHES = ["gloss", "matte", "textured"];
 
+const SPACE_PRICE_RANGES = {
+  "office space": [800, 1500],
+  lift: [600, 1200],
+  "full kitchen": [1800, 3500],
+  "kitchen cabinets": [900, 1800],
+  worktops: [400, 900],
+  wardrobes: [500, 1100],
+  "media wall / fireplace": [350, 700],
+  drawers: [150, 350],
+};
+
+const FINISH_MULTIPLIERS = {
+  gloss: 1,
+  matte: 1,
+  textured: 1.15,
+};
+
+function estimateRange(space, finish) {
+  const [low, high] = SPACE_PRICE_RANGES[space] ?? [0, 0];
+  const multiplier = FINISH_MULTIPLIERS[finish] ?? 1;
+  const round = (n) => Math.round((n * multiplier) / 10) * 10;
+  return [round(low), round(high)];
+}
+
+function formatGBP(n) {
+  return `£${n.toLocaleString("en-GB")}`;
+}
+
 function SentenceSelect({ value, onChange, options, width }) {
   return (
     <select
@@ -45,6 +73,7 @@ export default function Contact() {
     finish: FINISHES[0],
   });
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
+  const [estimateLow, estimateHigh] = estimateRange(form.space, form.finish);
 
   function onSubmit(e) {
     e.preventDefault();
@@ -70,6 +99,7 @@ export default function Contact() {
       `━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
       `Space:    ${form.space}`,
       `Finish:   ${form.finish}`,
+      `Guide price:  ${formatGBP(estimateLow)} – ${formatGBP(estimateHigh)}`,
       ``,
       `━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
       `CUSTOMER MESSAGE`,
@@ -121,6 +151,21 @@ export default function Contact() {
             />
             finish.
           </p>
+
+          <div className="flex flex-wrap items-center justify-between gap-4 border border-[#B8860B]/30 bg-[#B8860B]/5 px-6 py-5">
+            <div>
+              <p className="font-mono text-[10px] tracking-[0.3em] text-white/40">
+                ESTIMATED GUIDE PRICE
+              </p>
+              <p className="mt-1 font-display text-2xl font-light text-[#B8860B] sm:text-3xl">
+                {formatGBP(estimateLow)} – {formatGBP(estimateHigh)}
+              </p>
+            </div>
+            <p className="max-w-xs text-[11px] leading-relaxed text-white/40">
+              A rough guide based on typical jobs. Your final price is
+              confirmed after a quick look at the space.
+            </p>
+          </div>
 
           <div className="grid gap-6 sm:grid-cols-3">
             <input
