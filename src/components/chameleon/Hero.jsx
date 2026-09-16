@@ -35,6 +35,9 @@ export default function Hero() {
           />
         </motion.div>
 
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/30" />
+
         <motion.div
           style={{ left: bladeLeft }}
           className="absolute inset-y-0 z-10 w-[3px] bg-white/90 shadow-[0_0_24px_rgba(0,0,0,0.5)]">
@@ -44,8 +47,8 @@ export default function Hero() {
         </motion.div>
 
         <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black/85 via-black/40 to-transparent px-6 pb-24 pt-48 sm:px-10 lg:px-16">
-          <p className="font-mono font-medium text-[10px] tracking-[0.4em] text-white/80 sm:text-[11px]">
-            NEWCASTLE UPON TYNE — SURFACE TRANSFORMATION SPECIALISTS
+          <p className="font-mono font-medium text-[12px] tracking-[0.4em] text-white/80 sm:text-[12px]">
+            VINYL WRAPPING SPECIALISTS
           </p>
           <h1 className="mt-4 max-w-4xl font-display text-[clamp(2.6rem,8vw,6.5rem)] font-light leading-[0.95] tracking-[-0.02em] text-white">
             Your favourite space.

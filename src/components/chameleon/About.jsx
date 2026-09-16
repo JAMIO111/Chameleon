@@ -10,14 +10,26 @@ const STATS = [
 const TESTIMONIALS = [
   {
     quote:
-      "Chameleon Home Wrapping do cupboards as well as work surfaces. Excellent work.",
-    name: "Wendy Luke",
+      "From first contact to completion they did a top class makeover very pleased with the outcome. Would definitely use again and would 100% recommend.",
+    name: "Richard Porter",
     source: "via Facebook",
   },
   {
     quote:
-      "The kitchen cupboards were wrapped by Chameleon Home Wrapping and omg, look at the transformation — I LOVE it.",
-    name: "Whickham Salerooms",
+      "Highly recommend chameleon, they have totally transformed our kitchen work tops to go in with the new decor. Couldn’t be happier with the result. Very friendly and professional service. Would definitely use again 5 stars.",
+    name: "Lancaster Shell",
+    source: "via Facebook",
+  },
+  {
+    quote:
+      "I would highly recommend to anyone looking for a quality, professional service. From our first enquiry, to actual instalation everything has been superb. Chameleon worked so hard to ensure we got the best finish possible from the wrapping. We are so pleased with the finish. It has completely changed our kitchen.",
+    name: "Lyndsey Robinson",
+    source: "via Facebook",
+  },
+  {
+    quote:
+      "Had my kitchen wrapped over the last couple of day and I absolutely love it! Amazing skill and finesse, its just beautiful highly recommend these guys couldn’t fault there service! Professional, timely absolute Marvels at there trade!",
+    name: "Gemma Muldowney",
     source: "via Facebook",
   },
 ];
@@ -32,7 +44,7 @@ export default function About() {
         <div className="grid items-center gap-14 lg:grid-cols-2">
           <div className="relative overflow-hidden">
             <Image
-              src={IMAGES.handleMacro}
+              src={IMAGES.fitterWorking}
               alt="Matte vinyl wrap meeting a brushed brass handle"
               className="h-[420px] w-full object-cover sm:h-[560px]"
             />
@@ -49,20 +61,23 @@ export default function About() {
               ABOUT — NEWCASTLE UPON TYNE
             </p>
             <h2 className="mt-4 font-display text-[clamp(2rem,5vw,3.75rem)] font-light leading-[1.05] tracking-[-0.02em] text-white">
-              A local crew with{" "}
+              A local team with{" "}
               <span className="italic text-[#B8860B]">obsessive</span>{" "}
               standards.
             </h2>
             <p className="mt-6 text-base leading-relaxed text-white/70">
-              Chameleon is a Newcastle-based wrapping studio with ten years of
-              combined experience across kitchens, and bedroom furniture. We
-              treat your home like a showroom: edges wrapped by hand, joins
-              invisible, finishes flawless.
+              Chameleon is a Newcastle-based company with over ten years of
+              combined experience wrapping anything from kitchens to office
+              spaces and more. Choosing Chameleon gives you full creative
+              freedom by allowing you to select from our range of finishes and
+              colours to digital prints. Then, when it comes to installation, we
+              treat your space like a showroom, ensuring every detail is
+              perfect.
             </p>
             <p className="mt-4 text-base leading-relaxed text-white/70">
-              There&rsquo;s no rip-out, no re-plastering, no weeks of
-              tradespeople in your house — just a quiet, precise transformation
-              of the surfaces you already own.
+              There&rsquo;s no rip-out, no re-plastering, no weeks of tradesmen
+              in your house — just a quiet, precise transformation of the
+              surfaces you already own.
             </p>
 
             <div className="mt-10 grid grid-cols-3 gap-6 border-t border-white/10 pt-8">
@@ -80,15 +95,26 @@ export default function About() {
           </div>
         </div>
 
-        <div className="mt-20 grid gap-6 md:grid-cols-2">
+        <h2 className="mt-20 font-display text-[clamp(2rem,5vw,3.75rem)] font-light leading-[1.05] tracking-[-0.02em] text-white">
+          Testimonials
+        </h2>
+
+        <div className="mt-6 grid gap-6 md:grid-cols-2">
           {TESTIMONIALS.map((t) => (
             <figure key={t.name} className="border border-white/10 p-8">
               <blockquote className="font-display text-lg font-light italic leading-relaxed text-white/90">
                 &ldquo;{t.quote}&rdquo;
               </blockquote>
-              <figcaption className="mt-5 font-mono text-[10px] tracking-[0.25em] text-white/40">
-                {t.name.toUpperCase()} — {t.source.toUpperCase()}
-              </figcaption>
+              <div className="mt-4 flex gap-3 flex-row items-center">
+                <img
+                  src="recommends.png"
+                  alt={t.name}
+                  className="w-6 h-6 object-cover"
+                />
+                <figcaption className="font-mono text-[10px] tracking-[0.25em] text-white/40">
+                  {t.name.toUpperCase()} — {t.source.toUpperCase()}
+                </figcaption>
+              </div>
             </figure>
           ))}
         </div>

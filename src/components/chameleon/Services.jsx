@@ -9,13 +9,13 @@ const SERVICES = [
     image: IMAGES.commercialCabinet,
     meta: "01 / OFFICE · RETAIL · HOSPITALITY",
     blurb:
-      "Offices, bars and retail counters transformed with minimal downtime — hard-wearing wraps built for heavy use.",
+      "Offices, bars, lifts and retail counters transformed with minimal downtime — hard-wearing wraps built for heavy use.",
     swatch: "#B8860B",
   },
   {
     word: "KITCHEN",
     title: "Kitchens",
-    image: IMAGES.glossKitchen,
+    image: IMAGES.sageGreenKitchen,
     meta: "02 / DOORS · DRAWERS · CUPBOARDS",
     blurb:
       "Doors, drawers and cupboards wrapped in seamless gloss, matte or textured vinyl. No rip-out, no mess — a brand-new kitchen in days.",
@@ -27,34 +27,34 @@ const SERVICES = [
     image: IMAGES.oakTop,
     meta: "03 / MARBLE · GRANITE · OAK",
     blurb:
-      "Marble, granite and oak-effect wraps that are heat, stain and scratch resistant — seamless joins and a wipe-clean finish.",
+      "Marble, granite, oak-effect wraps and many more to give your worktops a fresh, new look.",
     swatch: "#8A8F98",
   },
   {
     word: "WARDROBE",
     title: "Wardrobes & Bedrooms",
-    image: IMAGES.sageWardrobe,
+    image: IMAGES.fittedWardrobe,
     meta: "04 / FITTED · FREESTANDING",
     blurb:
-      "Fitted wardrobes and bedroom furniture refreshed in any finish — from timeless high-gloss white to soft matte sage.",
+      "Fitted wardrobes and bedroom furniture refreshed in any finish — from sleek gloss anthrecite to soft matte sage.",
     swatch: "#4A5D4E",
   },
   {
     word: "MEDIA",
     title: "Media Walls & Fireplaces",
-    image: IMAGES.mediaWall,
+    image: IMAGES.mediaWall2,
     meta: "05 / SURROUNDS · UNITS",
     blurb:
-      "Media walls, fireplace surrounds and fitted units wrapped to match your space — flush, flawless and quietly modern.",
+      "Media walls, fireplace surrounds and fitted units wrapped to match your space — flush, flawless and quietly modern without the need for paint.",
     swatch: "#3A3F45",
   },
   {
     word: "FURNITURE",
     title: "Furniture & Drawers",
-    image: IMAGES.oakMacro,
+    image: IMAGES.whiteDrawer,
     meta: "06 / HOME · OFFICE",
     blurb:
-      "Dressers, drawer fronts, desks and office furniture given a premium new skin — grain-perfect, with seamless edges.",
+      "Dressers, drawers, desks and office furniture given a premium new skin to match your interior style.",
     swatch: "#7A5C3E",
   },
 ];

@@ -13,7 +13,7 @@ export default function BlueprintDialog({ item, children }) {
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="max-w-3xl overflow-hidden bg-[#F7F7F5] p-0 sm:rounded-none">
+      <DialogContent className="max-w-4xl overflow-hidden bg-[#F7F7F5] p-0 sm:rounded-none">
         <div className="grid sm:grid-cols-2">
           <Image
             src={item.image}

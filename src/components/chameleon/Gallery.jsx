@@ -13,13 +13,14 @@ const ASPECTS = [
 
 const WORK = [
   {
-    image: IMAGES.glossKitchen,
-    title: "High-gloss white kitchen",
-    meta: "KITCHEN / GLOSS",
-    blurb: "Tired oak-effect doors rewrapped in a mirror-flat gloss white.",
-    original: "Dated oak-effect doors and drawer fronts",
-    wrap: "High-gloss white vinyl, handles preserved",
-    benefits: ["Seamless edges", "Reflective depth", "Wipe-clean finish"],
+    image: IMAGES.matteSaharaKitchen,
+    title: "Matte Sahara kitchen",
+    meta: "KITCHEN / MATTE",
+    blurb:
+      "This kitchen was given a sleek new look with our matte Sahara wrap. The subtle texture and warm tones add a modern, sophisticated touch.",
+    original: "high-gloss grey doors and drawer fronts",
+    wrap: "Matte sahara vinyl",
+    benefits: ["Textured", "Refined", "Contemporary"],
     aspect: ASPECTS[0],
   },
   {
@@ -47,13 +48,14 @@ const WORK = [
     aspect: ASPECTS[2],
   },
   {
-    image: IMAGES.marbleWorktop,
-    title: "Marble-effect worktop",
+    image: IMAGES.onyxWorktop,
+    title: "Onyx gold worktop",
     meta: "WORKTOP / MARBLE",
-    blurb: "A laminate worktop reborn as veined marble — no joins, no sealant.",
+    blurb:
+      "This gorgeous finish brings deep rich tones, dramatic veining, and a high-end designer feel to any space. A perfect way to create that premium stone look without the cost and disruption of replacement.",
     original: "Worn laminate worktop",
-    wrap: "Marble-effect vinyl with wrapped edges",
-    benefits: ["Heat resistant", "Stain resistant", "No visible joins"],
+    wrap: "Onyx Gold vinyl from the marble range.",
+    benefits: ["Bold", "Elegant", "Timeless"],
     aspect: ASPECTS[3],
   },
   {
@@ -83,7 +85,7 @@ export default function Gallery() {
     <section
       id="work"
       data-swatch="#8A8F98"
-      className="bg-[#F7F7F5] py-24 sm:py-32">
+      className="bg-[#F7F7F5] py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <p className="font-mono text-[10px] tracking-[0.4em] text-[#4A5D4E]">
           THE GALLERY — PROOF OF CRAFT
