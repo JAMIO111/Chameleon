@@ -29,25 +29,27 @@ export default function Navbar() {
           ? "bg-card/90 shadow-[0_1px_0_rgba(18,18,18,0.08)] backdrop-blur-md"
           : "bg-transparent"
       }`}>
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-5 lg:px-8">
         <Link to="/" className="group flex items-center gap-3">
           <Image
             src={logoSrc}
             alt="Chameleon Home Wrapping logo"
-            className="h-9 w-auto object-contain sm:h-10"
+            className="h-14 w-auto object-contain sm:h-12"
           />
-          <span
-            className={`font-display text-xl tracking-[0.08em] transition-colors ${
-              scrolled || open ? "text-foreground" : "text-white"
-            }`}>
-            CHAMELEON
-          </span>
-          <span
-            className={`ml-2 hidden align-middle font-mono tracking-[0.3em] transition-colors sm:inline text-[11px] ${
-              scrolled || open ? "text-muted-foreground" : "text-white/80"
-            }`}>
-            HOME WRAPPING
-          </span>
+          <div className="flex flex-col">
+            <span
+              className={`font-display text-2xl tracking-[0.08em] transition-colors ${
+                scrolled || open ? "text-foreground" : "text-white"
+              }`}>
+              CHAMELEON
+            </span>
+            <span
+              className={`align-middle font-mono tracking-[0.3em] transition-colors sm:inline text-[11px] ${
+                scrolled || open ? "text-muted-foreground" : "text-white/80"
+              }`}>
+              HOME WRAPPING
+            </span>
+          </div>
         </Link>
 
         <div className="hidden items-center gap-8 md:flex">

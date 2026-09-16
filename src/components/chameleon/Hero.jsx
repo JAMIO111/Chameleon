@@ -26,6 +26,9 @@ export default function Hero() {
           alt="Dated oak kitchen before wrapping"
           className="absolute inset-0 h-full w-full object-cover"
         />
+        <text className="absolute border-2 border-white py-2 px-3 z-5 bottom-24 right-16 flex items-center justify-center font-medium text-[18px] tracking-[0.35em] text-white">
+          BEFORE
+        </text>
 
         <motion.div style={{ clipPath: clip }} className="absolute inset-0">
           <Image
@@ -33,6 +36,9 @@ export default function Hero() {
             alt="The same kitchen wrapped in matte grey vinyl"
             className="absolute inset-0 h-full w-full object-cover"
           />
+          <text className="absolute z-10 border-2 border-black py-2 px-3 bottom-24 right-16 flex items-center justify-center font-medium text-[18px] tracking-[0.35em] text-black">
+            AFTER
+          </text>
         </motion.div>
 
         {/* Dark overlay */}
@@ -56,9 +62,9 @@ export default function Hero() {
             <span className="italic">Reimagined</span>
           </h1>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-white/85 sm:text-lg">
-            Chameleon wraps worktops, wardrobes and fitted furniture in premium
-            vinyl — a seamless, mess-free transformation for a fraction of the
-            cost of replacement.
+            Chameleon wraps worktops, wardrobes, fitted furniture, and
+            commercial interiors in premium vinyl — delivering a seamless,
+            mess-free transformation for a fraction of the cost of replacement.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a

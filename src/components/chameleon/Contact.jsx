@@ -14,31 +14,42 @@ const SPACES = [
   "wardrobes",
   "media wall / fireplace",
   "drawers",
+  "glass",
 ];
 
 const FINISHES = ["gloss", "matte", "textured"];
 
 const SPACE_PRICE_RANGES = {
-  "office space": [800, 1500],
-  lift: [600, 1200],
-  "full kitchen": [1800, 3500],
-  "kitchen cabinets": [900, 1800],
-  worktops: [400, 900],
-  wardrobes: [500, 1100],
-  "media wall / fireplace": [350, 700],
-  drawers: [150, 350],
+  "office space": [900, 1800],
+  lift: [700, 1400],
+  "full kitchen": [2200, 4200],
+  "kitchen cabinets": [1100, 2200],
+  worktops: [450, 950],
+  wardrobes: [600, 1300],
+  "media wall / fireplace": [400, 800],
+  drawers: [200, 400],
+  glass: [300, 600],
+};
+
+const SPACE_SIZES = ["small", "medium", "large"];
+
+const SPACE_SIZE_MULTIPLIERS = {
+  small: 0.75,
+  medium: 1,
+  large: 1.3,
 };
 
 const FINISH_MULTIPLIERS = {
   gloss: 1,
-  matte: 1,
-  textured: 1.15,
+  matte: 1.05,
+  textured: 1.12,
 };
 
-function estimateRange(space, finish) {
+function estimateRange(space, finish, spaceSize) {
   const [low, high] = SPACE_PRICE_RANGES[space] ?? [0, 0];
   const multiplier = FINISH_MULTIPLIERS[finish] ?? 1;
-  const round = (n) => Math.round((n * multiplier) / 10) * 10;
+  const sizeMultiplier = SPACE_SIZE_MULTIPLIERS[spaceSize] ?? 1;
+  const round = (n) => Math.round((n * multiplier * sizeMultiplier) / 10) * 10;
   return [round(low), round(high)];
 }
 
@@ -71,9 +82,14 @@ export default function Contact() {
     message: "",
     space: SPACES[0],
     finish: FINISHES[0],
+    spaceSize: SPACE_SIZES[1],
   });
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
-  const [estimateLow, estimateHigh] = estimateRange(form.space, form.finish);
+  const [estimateLow, estimateHigh] = estimateRange(
+    form.space,
+    form.finish,
+    form.spaceSize,
+  );
 
   function onSubmit(e) {
     e.preventDefault();
@@ -97,6 +113,7 @@ export default function Contact() {
       `━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
       `PROJECT DETAILS`,
       `━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+      `Space Size: ${form.spaceSize}`,
       `Space:    ${form.space}`,
       `Finish:   ${form.finish}`,
       `Guide price:  ${formatGBP(estimateLow)} – ${formatGBP(estimateHigh)}`,
@@ -117,14 +134,14 @@ export default function Contact() {
   }
 
   const inputCls =
-    "w-full border-b border-white/20 bg-transparent py-3 text-white placeholder:text-white/30 focus:border-[#B8860B] focus:outline-none";
+    "w-full border-b border-white/20 bg-[#141414] py-3 pl-2 text-white placeholder:text-white/30 focus:border-[#B8860B] focus:outline-none";
 
   return (
     <section
       id="contact"
       data-swatch="#B8860B"
       className="bg-[#121212] py-24 sm:py-32">
-      <div className="mx-auto max-w-4xl px-6 lg:px-10">
+      <div className="mx-auto max-w-5xl px-6 lg:px-10">
         <p className="font-mono text-[10px] tracking-[0.4em] text-[#4A5D4E]">
           THE CONSULTATION
         </p>
@@ -136,6 +153,12 @@ export default function Contact() {
         <form onSubmit={onSubmit} className="mt-12 space-y-10">
           <p className="font-display text-xl font-light leading-relaxed text-white/90 sm:text-2xl">
             I want to transform my
+            <SentenceSelect
+              value={form.spaceSize}
+              onChange={(v) => setForm((f) => ({ ...f, spaceSize: v }))}
+              options={SPACE_SIZES}
+              width="120px"
+            />
             <SentenceSelect
               value={form.space}
               onChange={(v) => setForm((f) => ({ ...f, space: v }))}
@@ -162,8 +185,8 @@ export default function Contact() {
               </p>
             </div>
             <p className="max-w-xs text-[11px] leading-relaxed text-white/40">
-              A rough guide based on typical jobs. Your final price is
-              confirmed after a quick look at the space.
+              A rough guide based on typical jobs. Your final price is confirmed
+              after a quick look at the space.
             </p>
           </div>
 

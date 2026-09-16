@@ -43,10 +43,10 @@ export default function AboutPage() {
                 will price it up for you.
               </p>
               <p>
-                Behind Chameleon is a small local crew with over forty years of
+                Behind Chameleon is a small local crew with over ten years of
                 combined wrapping experience across cars, bikes and homes, and a
-                5.0&#9733; average from 76 Facebook reviews. We treat every home
-                like a showroom.
+                100% recommendation from 76 Facebook reviews. We treat every
+                home like a showroom.
               </p>
             </div>
           </div>

@@ -19,10 +19,10 @@ export default function ContactPage() {
               <span className="italic text-[#B8860B]">space</span>.
             </h1>
             <p className="mt-6 max-w-xl pb-4 text-base leading-relaxed text-white/70">
-              Send a few photos of the area you would like wrapped — showing the
-              whole space so we can see it clearly — and we will come back with
-              a free, no-obligation quote. Prefer to chat first? Message us on
-              Facebook or Instagram, or use the form below.
+              Attach a few photos of the area you would like wrapped to the
+              email — showing the whole space so we can see it clearly — and we
+              will come back with a free, no-obligation quote. Prefer to chat
+              first? Message us on Facebook or Instagram, or use the form below.
             </p>
           </div>
         </section>
