@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Building2,
   ChefHat,
+  ChevronLeft,
+  ChevronRight,
   ConciergeBell,
   DoorClosed,
   Hotel,
@@ -155,7 +158,7 @@ const CASE_STUDIES = [
   {
     category: "RETAIL",
     title: "Retail display refresh",
-    image: IMAGES.retailStand1,
+    images: [IMAGES.retailStand1, IMAGES.retailStand2],
     alt: "Retail display stand wrapped in a floral digital print ready for a seasonal marketing campaign",
     blurb:
       "A retail display stand wrapped in a bold floral digital print to match seasonal branding — updated without replacing the unit itself.",
@@ -164,7 +167,7 @@ const CASE_STUDIES = [
   {
     category: "LIFTS",
     title: "Lift refresh",
-    image: IMAGES.lift1,
+    images: [IMAGES.lift1],
     alt: "Lift wrapped in a brushed metal finish",
     blurb:
       "A tired office block elevator doors and interior panels wrapped in a sleek brushed-metal finish — transformed in place without removing the existing panels or taking the lift out of service for long.",
@@ -173,7 +176,7 @@ const CASE_STUDIES = [
   {
     category: "OFFICES",
     title: "Office fit-out refresh",
-    image: "/case-studies/office.jpg",
+    images: ["/case-studies/office.jpg"],
     alt: "Office desks and cabinetry wrapped in a matte finish",
     blurb:
       "Desks, partitions and cabinetry across an open-plan office wrapped in a consistent matte finish, refreshing the space with minimal disruption to the working day.",
@@ -182,7 +185,7 @@ const CASE_STUDIES = [
   {
     category: "GLAZING",
     title: "Glazing & partitions",
-    image: IMAGES.glassBranding,
+    images: [IMAGES.glassBranding],
     alt: "Internal glass partition finished with frosted film",
     blurb:
       "Frosted film applied to internal glass partitions or glass doors for privacy and a cleaner, more considered look — without replacing the glass itself. The vinyl also offers heat insulation benefits in the summer months. Business name and logo can also be applied to the frosted film to serve as branding too.",
@@ -198,6 +201,52 @@ const WHY_CHAMELEON = [
   "12-month warranty on lifts and peels",
   "Free, no-obligation quotations",
 ];
+
+function CaseStudyImages({ images, alt }) {
+  const [index, setIndex] = useState(0);
+  const hasMultiple = images.length > 1;
+
+  const goPrev = () => setIndex((i) => (i - 1 + images.length) % images.length);
+  const goNext = () => setIndex((i) => (i + 1) % images.length);
+
+  return (
+    <div className="relative overflow-hidden bg-white/5">
+      <Image
+        src={images[index]}
+        alt={alt}
+        className="h-[400px] w-full object-cover sm:h-[480px]"
+      />
+      {hasMultiple && (
+        <>
+          <button
+            type="button"
+            aria-label="Previous image"
+            onClick={goPrev}
+            className="absolute left-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-[#121212]/70 text-white transition-colors hover:bg-[#121212]">
+            <ChevronLeft className="h-4 w-4" />
+          </button>
+          <button
+            type="button"
+            aria-label="Next image"
+            onClick={goNext}
+            className="absolute right-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-[#121212]/70 text-white transition-colors hover:bg-[#121212]">
+            <ChevronRight className="h-4 w-4" />
+          </button>
+          <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-1.5">
+            {images.map((_, i) => (
+              <span
+                key={i}
+                className={`h-1.5 w-1.5 rounded-full ${
+                  i === index ? "bg-white" : "bg-white/40"
+                }`}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
 
 const buttonGold =
   "bg-[#B8860B] px-7 py-3.5 font-mono text-[11px] tracking-[0.25em] text-white transition-colors hover:bg-[#9a7009]";
@@ -458,15 +507,8 @@ export default function CommercialPage() {
                 <div
                   key={study.title}
                   className="grid items-center gap-10 border-t border-white/10 pt-12 first:border-t-0 first:pt-0 lg:grid-cols-2 lg:gap-14">
-                  <div
-                    className={`relative overflow-hidden bg-white/5 ${
-                      i % 2 === 1 ? "lg:order-2" : ""
-                    }`}>
-                    <Image
-                      src={study.image}
-                      alt={study.alt}
-                      className="h-[400px] w-full object-cover sm:h-[480px]"
-                    />
+                  <div className={i % 2 === 1 ? "lg:order-2" : ""}>
+                    <CaseStudyImages images={study.images} alt={study.alt} />
                   </div>
                   <div>
                     <p className="font-mono text-[10px] tracking-[0.3em] text-[#4A5D4E]">
