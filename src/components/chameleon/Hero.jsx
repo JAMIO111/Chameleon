@@ -43,8 +43,7 @@ export default function Hero() {
     <section id="top" data-swatch="#121212" className="relative h-screen">
       <div
         ref={containerRef}
-        onPointerDown={startDrag}
-        className="relative h-full touch-none select-none overflow-hidden">
+        className="relative h-full select-none overflow-hidden">
         <Image
           src={IMAGES.beforeHero}
           alt="Dated oak kitchen before wrapping"
@@ -74,15 +73,12 @@ export default function Hero() {
 
         <div
           style={{ left: `${percent}%` }}
-          className="absolute inset-y-0 z-10 w-[3px] -translate-x-1/2 bg-white/90 shadow-[0_0_24px_rgba(0,0,0,0.5)]">
+          className="absolute inset-y-0 z-30 w-[3px] -translate-x-1/2 bg-white/90 shadow-[0_0_24px_rgba(0,0,0,0.5)]">
           <button
             type="button"
             aria-label="Drag to compare before and after"
-            onPointerDown={(e) => {
-              e.stopPropagation();
-              startDrag(e);
-            }}
-            className="absolute left-1/2 top-36 flex h-12 w-12 -translate-x-1/2 cursor-ew-resize items-center justify-center rounded-full border-2 border-white bg-[#121212] text-white shadow-[0_0_24px_rgba(0,0,0,0.5)] transition-transform hover:scale-105">
+            onPointerDown={startDrag}
+            className="absolute left-1/2 top-36 flex h-12 w-12 -translate-x-1/2 touch-none cursor-ew-resize items-center justify-center rounded-full border-2 border-white bg-[#121212] text-white shadow-[0_0_24px_rgba(0,0,0,0.5)] transition-transform hover:scale-105">
             <ChevronsLeftRight className="h-5 w-5" />
           </button>
         </div>
