@@ -156,7 +156,7 @@ const DISRUPTION_POINTS = [
 const CASE_STUDIES = [
   {
     category: "RETAIL",
-    title: "Retail display refresh",
+    title: "Branded Retail Display ",
     images: [IMAGES.retailStand1, IMAGES.retailStand2, IMAGES.retailStand3],
     alt: "Retail display stand wrapped in a floral digital print ready for a seasonal marketing campaign",
     blurb:
@@ -165,7 +165,7 @@ const CASE_STUDIES = [
   },
   {
     category: "LIFTS",
-    title: "Lift refresh",
+    title: "Face-Lift",
     images: [IMAGES.lift1, IMAGES.lift2],
     alt: "Lift wrapped in a brushed metal finish",
     blurb:
@@ -174,7 +174,7 @@ const CASE_STUDIES = [
   },
   {
     category: "OFFICES",
-    title: "Office fit-out refresh",
+    title: "Office Makeover",
     images: [IMAGES.hallway1, IMAGES.hallway2, IMAGES.hallway3],
     alt: "Office doors and walls in a wood and concrete effect vinyl",
     blurb:
