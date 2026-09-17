@@ -103,7 +103,6 @@ const FINISHES = [
   "Matte",
   "Gloss",
   "Textured",
-  "Solid colours",
 ];
 
 const PROCESS_STEPS = [
@@ -294,14 +293,14 @@ export default function CommercialPage() {
 
             <div className="mt-10 grid gap-10 sm:grid-cols-2">
               <div>
-                <p className="font-mono text-[10px] tracking-[0.3em] text-[#121212]/40">
-                  SURFACES WE CAN TRANSFORM
+                <p className="font-mono text-[12px] tracking-[0.3em] text-[#121212]/40">
+                  SURFACES WE CAN APPLY TO
                 </p>
                 <ul className="mt-5 space-y-2.5">
                   {SURFACES.map((s) => (
                     <li
                       key={s}
-                      className="flex items-center gap-3 text-sm text-[#121212]/70">
+                      className="flex items-center gap-3 text-[#121212]/70">
                       <span className="h-1 w-1 shrink-0 bg-[#B8860B]" />
                       {s}
                     </li>
@@ -309,14 +308,14 @@ export default function CommercialPage() {
                 </ul>
               </div>
               <div>
-                <p className="font-mono text-[10px] tracking-[0.3em] text-[#121212]/40">
-                  FINISHES AVAILABLE
+                <p className="font-mono text-[12px] tracking-[0.3em] text-[#121212]/40">
+                  VINYL FINISHES AVAILABLE
                 </p>
                 <ul className="mt-5 space-y-2.5">
                   {FINISHES.map((f) => (
                     <li
                       key={f}
-                      className="flex items-center gap-3 text-sm text-[#121212]/70">
+                      className="flex items-center gap-3 text-[#121212]/70">
                       <span className="h-1 w-1 shrink-0 bg-[#4A5D4E]" />
                       {f}
                     </li>
@@ -324,7 +323,7 @@ export default function CommercialPage() {
                 </ul>
               </div>
             </div>
-            <p className="mt-8 max-w-lg text-[13px] leading-relaxed text-[#121212]/50">
+            <p className="mt-12 max-w-lg text-[13px] leading-relaxed text-[#121212]/50">
               Every project is assessed individually to confirm the existing
               surface is suitable for wrapping.{" "}
               <Link
@@ -462,23 +461,6 @@ export default function CommercialPage() {
             </ul>
           </div>
         </section>
-
-        {/* FAQ */}
-        <section
-          id="commercial-faq"
-          data-swatch="#4A5D4E"
-          className="bg-[#F7F7F5] py-24 sm:py-32">
-          <div className="mx-auto max-w-3xl px-6 lg:px-10">
-            <p className="font-mono text-[10px] tracking-[0.4em] text-[#4A5D4E]">
-              FAQ — COMMERCIAL PROJECTS
-            </p>
-            <h2 className="mt-4 font-display text-[clamp(2rem,5vw,3.75rem)] font-light leading-[1.05] tracking-[-0.02em] text-[#121212]">
-              You asked,{" "}
-              <span className="italic text-[#4A5D4E]">we answered</span>.
-            </h2>
-          </div>
-        </section>
-
         {/* Final CTA */}
         <section
           id="commercial-quote"

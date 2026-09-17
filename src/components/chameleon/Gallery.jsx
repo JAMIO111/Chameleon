@@ -85,7 +85,7 @@ export default function Gallery() {
     <section
       id="work"
       data-swatch="#8A8F98"
-      className="bg-[#F7F7F5] py-20 sm:py-28">
+      className="bg-[#F7F7F5] pb-20 sm:pb-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <p className="font-mono text-[10px] tracking-[0.4em] text-[#4A5D4E]">
           THE GALLERY — PROOF OF CRAFT
