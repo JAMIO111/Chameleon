@@ -151,6 +151,45 @@ const DISRUPTION_POINTS = [
   "Clear communication from quote to completion",
 ];
 
+const CASE_STUDIES = [
+  {
+    category: "LIFTS",
+    title: "Lift interior refresh",
+    image: "/case-studies/lift.jpg",
+    alt: "Lift interior wrapped in a brushed metal finish",
+    blurb:
+      "A tired lift interior wrapped in a durable brushed-metal finish — transformed in place without removing the existing panels or taking the lift out of service for long.",
+    tags: ["Metal finish", "Installed in place", "Minimal downtime"],
+  },
+  {
+    category: "RETAIL",
+    title: "Retail display refresh",
+    image: "/case-studies/retail-stand.jpg",
+    alt: "Retail display stand wrapped in a solid colour finish",
+    blurb:
+      "A retail display stand wrapped in a bold solid colour to match seasonal branding — updated without replacing the unit itself.",
+    tags: ["Solid colour", "Brand match", "Quick turnaround"],
+  },
+  {
+    category: "OFFICES",
+    title: "Office fit-out refresh",
+    image: "/case-studies/office.jpg",
+    alt: "Office desks and cabinetry wrapped in a matte finish",
+    blurb:
+      "Desks, partitions and cabinetry across an open-plan office wrapped in a consistent matte finish, refreshing the space with minimal disruption to the working day.",
+    tags: ["Matte finish", "Fitted furniture", "Worked around business hours"],
+  },
+  {
+    category: "GLAZING",
+    title: "Glazing & partitions",
+    image: "/case-studies/glass.jpg",
+    alt: "Internal glass partition finished with frosted film",
+    blurb:
+      "Frosted film applied to internal glass partitions for privacy and a cleaner, more considered look — without replacing the glass itself.",
+    tags: ["Frosted film", "Privacy", "No glass replacement"],
+  },
+];
+
 const WHY_CHAMELEON = [
   "Premium architectural vinyl",
   "Existing surfaces retained wherever possible",
@@ -400,40 +439,64 @@ export default function CommercialPage() {
           </div>
         </section>
 
-        {/* Recent commercial work */}
+        {/* Case studies */}
         <section
           id="commercial-work"
           data-swatch="#8A8F98"
           className="bg-[#121212] py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
-            <div className="grid items-center gap-14 lg:grid-cols-2">
-              <div className="relative overflow-hidden">
-                <Image
-                  src={IMAGES.commercialCabinet}
-                  alt="Commercial cabinetry wrapped in a seamless vinyl finish"
-                  className="h-[360px] w-full object-cover sm:h-[460px]"
-                />
-              </div>
-              <div>
-                <p className="font-mono text-[10px] tracking-[0.4em] text-[#4A5D4E]">
-                  COMMERCIAL WORK
-                </p>
-                <h2 className="mt-4 font-display text-[clamp(2rem,5vw,3.75rem)] font-light leading-[1.05] tracking-[-0.02em] text-white">
-                  Built for{" "}
-                  <span className="italic text-[#B8860B]">heavy use</span>.
-                </h2>
-                <p className="mt-6 max-w-xl text-base leading-relaxed text-white/70">
-                  Commercial cabinetry wrapped in a durable, seamless finish —
-                  the same hand-applied approach we use across offices, retail
-                  and hospitality projects.
-                </p>
-                <Link
-                  to="/#work"
-                  className="mt-6 inline-block font-mono text-[10px] tracking-[0.3em] text-[#B8860B] transition-colors hover:text-white">
-                  SEE MORE OF OUR WORK →
-                </Link>
-              </div>
+            <p className="font-mono text-[10px] tracking-[0.4em] text-[#4A5D4E]">
+              COMMERCIAL WORK
+            </p>
+            <h2 className="mt-4 max-w-2xl font-display text-[clamp(2rem,5vw,3.75rem)] font-light leading-[1.05] tracking-[-0.02em] text-white">
+              Built for{" "}
+              <span className="italic text-[#B8860B]">heavy use</span>.
+            </h2>
+
+            <div className="mt-16 space-y-16 sm:space-y-24">
+              {CASE_STUDIES.map((study, i) => (
+                <div
+                  key={study.title}
+                  className="grid items-center gap-10 border-t border-white/10 pt-12 first:border-t-0 first:pt-0 lg:grid-cols-2 lg:gap-14">
+                  <div
+                    className={`relative overflow-hidden bg-white/5 ${
+                      i % 2 === 1 ? "lg:order-2" : ""
+                    }`}>
+                    <Image
+                      src={study.image}
+                      alt={study.alt}
+                      className="h-[300px] w-full object-cover sm:h-[380px]"
+                    />
+                  </div>
+                  <div>
+                    <p className="font-mono text-[10px] tracking-[0.3em] text-[#4A5D4E]">
+                      CASE STUDY — {study.category}
+                    </p>
+                    <h3 className="mt-3 font-display text-2xl font-light text-white sm:text-3xl">
+                      {study.title}
+                    </h3>
+                    <p className="mt-4 max-w-xl text-base leading-relaxed text-white/70">
+                      {study.blurb}
+                    </p>
+                    <ul className="mt-5 flex flex-wrap gap-2">
+                      {study.tags.map((tag) => (
+                        <li
+                          key={tag}
+                          className="border border-white/15 px-3 py-1.5 font-mono text-[9px] tracking-[0.2em] text-white/60">
+                          {tag.toUpperCase()}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ))}
             </div>
+
+            <Link
+              to="/#work"
+              className="mt-16 inline-block font-mono text-[10px] tracking-[0.3em] text-[#B8860B] transition-colors hover:text-white">
+              SEE MORE OF OUR WORK →
+            </Link>
           </div>
         </section>
 
