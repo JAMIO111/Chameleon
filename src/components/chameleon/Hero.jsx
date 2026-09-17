@@ -1,56 +1,91 @@
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { ChevronsLeftRight } from "lucide-react";
 import { Image } from "@/components/ui/image";
 import { IMAGES } from "./images";
 
 export default function Hero() {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end end"],
-  });
-  const reveal = useTransform(scrollYProgress, [0.05, 0.75], [0, 100]);
-  const clip = useTransform(reveal, (v) => `inset(0 0 0 ${v}%)`);
-  const bladeLeft = useTransform(reveal, (v) => `${v}%`);
+  const containerRef = useRef(null);
+  const [percent, setPercent] = useState(50);
+  const [dragging, setDragging] = useState(false);
+
+  const updateFromClientX = useCallback((clientX) => {
+    const el = containerRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const ratio = ((clientX - rect.left) / rect.width) * 100;
+    setPercent(Math.min(100, Math.max(0, ratio)));
+  }, []);
+
+  useEffect(() => {
+    if (!dragging) return undefined;
+
+    const onMove = (e) => {
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      updateFromClientX(clientX);
+    };
+    const onUp = () => setDragging(false);
+
+    window.addEventListener("pointermove", onMove);
+    window.addEventListener("pointerup", onUp);
+    return () => {
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerup", onUp);
+    };
+  }, [dragging, updateFromClientX]);
+
+  const startDrag = (e) => {
+    e.preventDefault();
+    updateFromClientX(e.clientX);
+    setDragging(true);
+  };
 
   return (
-    <section
-      ref={ref}
-      id="top"
-      data-swatch="#121212"
-      className="relative h-[230vh]">
-      <div className="sticky top-0 h-screen overflow-hidden">
+    <section id="top" data-swatch="#121212" className="relative h-screen">
+      <div
+        ref={containerRef}
+        onPointerDown={startDrag}
+        className="relative h-full touch-none select-none overflow-hidden">
         <Image
           src={IMAGES.beforeHero}
           alt="Dated oak kitchen before wrapping"
+          draggable={false}
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <text className="absolute border-2 border-white py-2 px-3 z-5 bottom-24 right-16 flex items-center justify-center font-medium text-[18px] tracking-[0.35em] text-white">
+        <span className="pointer-events-none absolute right-16 top-24 z-[5] flex items-center justify-center border-2 border-white px-3 py-2 text-[18px] font-medium tracking-[0.35em] text-white">
           BEFORE
-        </text>
+        </span>
 
-        <motion.div style={{ clipPath: clip }} className="absolute inset-0">
+        <div
+          style={{ clipPath: `inset(0 0 0 ${percent}%)` }}
+          className="absolute inset-0">
           <Image
             src={IMAGES.afterHero}
             alt="The same kitchen wrapped in matte grey vinyl"
+            draggable={false}
             className="absolute inset-0 h-full w-full object-cover"
           />
-          <text className="absolute z-10 border-2 border-black py-2 px-3 bottom-24 right-16 flex items-center justify-center font-medium text-[18px] tracking-[0.35em] text-black">
+          <span className="pointer-events-none absolute bottom-24 right-16 z-10 flex items-center justify-center border-2 border-black px-3 py-2 text-[18px] font-medium tracking-[0.35em] text-black">
             AFTER
-          </text>
-        </motion.div>
+          </span>
+        </div>
 
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="pointer-events-none absolute inset-0 bg-black/30" />
 
-        <motion.div
-          style={{ left: bladeLeft }}
-          className="absolute inset-y-0 z-10 w-[3px] bg-white/90 shadow-[0_0_24px_rgba(0,0,0,0.5)]">
-          <span className="absolute left-1/2 top-6 -translate-x-1/2 bg-[#121212]/70 px-2 py-1 font-mono text-[9px] tracking-[0.35em] text-white">
-            WRAP
-          </span>
-        </motion.div>
+        <div
+          style={{ left: `${percent}%` }}
+          className="absolute inset-y-0 z-10 w-[3px] -translate-x-1/2 bg-white/90 shadow-[0_0_24px_rgba(0,0,0,0.5)]">
+          <button
+            type="button"
+            aria-label="Drag to compare before and after"
+            onPointerDown={(e) => {
+              e.stopPropagation();
+              startDrag(e);
+            }}
+            className="absolute left-1/2 top-36 flex h-12 w-12 -translate-x-1/2 cursor-ew-resize items-center justify-center rounded-full border-2 border-white bg-[#121212] text-white shadow-[0_0_24px_rgba(0,0,0,0.5)] transition-transform hover:scale-105">
+            <ChevronsLeftRight className="h-5 w-5" />
+          </button>
+        </div>
 
         <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black/85 via-black/40 to-transparent px-6 pb-24 pt-48 sm:px-10 lg:px-16">
           <p className="font-mono font-medium text-[12px] tracking-[0.4em] text-white/80 sm:text-[12px]">
@@ -80,9 +115,8 @@ export default function Hero() {
           </div>
         </div>
 
-        <p className="absolute bottom-6 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2 font-mono text-[9px] tracking-[0.35em] text-white/70">
-          <ChevronDown className="h-3.5 w-3.5 animate-bounce" />
-          SCROLL TO REVEAL
+        <p className="pointer-events-none absolute bottom-6 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2 font-mono text-[9px] tracking-[0.35em] text-white/70">
+          DRAG TO COMPARE
         </p>
       </div>
     </section>
