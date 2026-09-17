@@ -8,6 +8,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import Home from "@/pages/Home";
 import AboutPage from "@/pages/AboutPage";
 import ContactPage from "@/pages/ContactPage";
+import CommercialPage from "@/pages/CommercialPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           {/* Add your page Route elements here */}
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/services/commercial" element={<CommercialPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
