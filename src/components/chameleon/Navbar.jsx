@@ -7,6 +7,7 @@ import logoSrc from "@/assets/logo-no-bg.png?w=300&format=webp";
 const LINKS = [
   { label: "Services", to: "/#services" },
   { label: "Our Work", to: "/#work" },
+  { label: "Commercial", to: "/services/commercial" },
   { label: "About", to: "/about" },
   { label: "Contact", to: "/contact" },
 ];

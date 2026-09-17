@@ -1,7 +1,13 @@
+import { Link } from "react-router-dom";
 import { Image } from "@/components/ui/image";
 import { Link } from "react-router-dom";
 
 export default function ServiceCard({ service, onHover, onLeave }) {
+  const EnquireLink = service.href ? Link : "a";
+  const enquireProps = service.href
+    ? { to: service.href }
+    : { href: "#contact" };
+
   return (
     <article
       onMouseEnter={() => onHover(service.swatch)}
@@ -27,20 +33,11 @@ export default function ServiceCard({ service, onHover, onLeave }) {
         <p className="mt-3 flex-1 text-sm leading-relaxed text-white/65">
           {service.blurb}
         </p>
-        <div className="mt-5 flex flex-row items-center justify-between gap-4">
-          <a
-            href="/contact"
-            className="inline-block font-mono text-[12px] tracking-[0.3em] text-[#B8860B] transition-colors hover:text-white">
-            ENQUIRE →
-          </a>
-          {service.link && (
-            <Link
-              to={service.link}
-              className="inline-block font-mono text-[12px] tracking-[0.3em] text-[#B8860B] transition-colors hover:text-white">
-              SEE MORE →
-            </Link>
-          )}
-        </div>
+        <EnquireLink
+          {...enquireProps}
+          className="mt-5 inline-block font-mono text-[10px] tracking-[0.3em] text-[#B8860B] transition-colors hover:text-white">
+          {service.href ? "LEARN MORE →" : "ENQUIRE →"}
+        </EnquireLink>
       </div>
       <span
         className="absolute left-0 top-0 h-full w-[3px] origin-top scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-y-100"
