@@ -1,53 +1,83 @@
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
+import Navbar from "@/components/chameleon/Navbar";
+import Footer from "@/components/chameleon/Footer";
+import AdaptiveCursor from "@/components/chameleon/AdaptiveCursor";
 
-export default function PageNotFound({}) {
+export default function PageNotFound() {
   const location = useLocation();
   const pageName = location.pathname.substring(1);
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-6 bg-slate-50">
-      <div className="max-w-md w-full">
-        <div className="text-center space-y-6">
-          {/* 404 Error Code */}
-          <div className="space-y-2">
-            <h1 className="text-7xl font-light text-slate-300">404</h1>
-            <div className="h-0.5 w-16 bg-slate-200 mx-auto"></div>
+    <>
+      <AdaptiveCursor />
+      <Navbar />
+      <main className="relative flex min-h-screen items-center overflow-hidden bg-[#121212] pb-24 pt-32">
+        <div className="pointer-events-none absolute -top-1/4 left-1/2 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-[#B8860B]/10 blur-[120px]" />
+
+        <div className="relative mx-auto max-w-3xl px-6 text-center lg:px-10">
+          <p className="font-mono text-[10px] tracking-[0.4em] text-[#4A5D4E]">
+            ERROR 404 — SURFACE NOT FOUND
+          </p>
+
+          <div className="relative mx-auto mt-6 w-fit">
+            <h1 className="select-none font-display text-[clamp(6rem,22vw,13rem)] font-light leading-none tracking-[-0.03em] text-white/10">
+              404
+            </h1>
+            <motion.div
+              className="absolute inset-0 overflow-hidden"
+              initial={{ clipPath: "inset(0 100% 0 0)" }}
+              animate={{
+                clipPath: [
+                  "inset(0 100% 0 0)",
+                  "inset(0 0% 0 0)",
+                  "inset(0 0% 0 100%)",
+                ],
+              }}
+              transition={{
+                duration: 3.2,
+                repeat: Infinity,
+                repeatDelay: 1.4,
+                ease: "easeInOut",
+              }}>
+              <h1 className="select-none font-display text-[clamp(6rem,22vw,13rem)] font-light leading-none tracking-[-0.03em] text-[#B8860B]">
+                404
+              </h1>
+            </motion.div>
           </div>
 
-          {/* Main Message */}
-          <div className="space-y-3">
-            <h2 className="text-2xl font-medium text-slate-800">
-              Page Not Found
-            </h2>
-            <p className="text-slate-600 leading-relaxed">
-              The page{" "}
-              <span className="font-medium text-slate-700">"{pageName}"</span>{" "}
-              could not be found in this application.
-            </p>
-          </div>
+          <h2 className="mt-8 font-display text-[clamp(1.75rem,4vw,2.75rem)] font-light leading-tight text-white">
+            This page went full{" "}
+            <span className="italic text-[#B8860B]">chameleon</span>.
+          </h2>
+          <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-white/70">
+            {pageName ? (
+              <>
+                We looked for{" "}
+                <span className="text-white/90">&ldquo;/{pageName}&rdquo;</span>{" "}
+                but it&rsquo;s blended into the background.{" "}
+              </>
+            ) : (
+              <>The page you&rsquo;re after has blended into the background. </>
+            )}
+            Let&rsquo;s get you back to a space we can actually see.
+          </p>
 
-          {/* Action Button */}
-          <div className="pt-6">
-            <button
-              onClick={() => (window.location.href = "/")}
-              className="inline-flex items-center px-4 py-2 text-sm font-medium text-slate-700 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 hover:border-slate-300 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500">
-              <svg
-                className="w-4 h-4 mr-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                />
-              </svg>
-              Go Home
-            </button>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <Link
+              to="/"
+              className="bg-[#B8860B] px-7 py-3.5 font-mono text-[11px] tracking-[0.25em] text-white transition-colors hover:bg-[#9a7009]">
+              BACK TO HOME
+            </Link>
+            <Link
+              to="/contact"
+              className="border border-white/30 px-7 py-3.5 font-mono text-[11px] tracking-[0.25em] text-white transition-colors hover:bg-white/10">
+              CONTACT US
+            </Link>
           </div>
         </div>
-      </div>
-    </div>
+      </main>
+      <Footer />
+    </>
   );
 }
