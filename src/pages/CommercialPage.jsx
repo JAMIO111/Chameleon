@@ -153,22 +153,22 @@ const DISRUPTION_POINTS = [
 
 const CASE_STUDIES = [
   {
-    category: "LIFTS",
-    title: "Lift interior refresh",
-    image: "/case-studies/lift.jpg",
-    alt: "Lift interior wrapped in a brushed metal finish",
-    blurb:
-      "A tired lift interior wrapped in a durable brushed-metal finish — transformed in place without removing the existing panels or taking the lift out of service for long.",
-    tags: ["Metal finish", "Installed in place", "Minimal downtime"],
-  },
-  {
     category: "RETAIL",
     title: "Retail display refresh",
-    image: "/case-studies/retail-stand.jpg",
-    alt: "Retail display stand wrapped in a solid colour finish",
+    image: IMAGES.retailStand1,
+    alt: "Retail display stand wrapped in a floral digital print ready for a seasonal marketing campaign",
     blurb:
-      "A retail display stand wrapped in a bold solid colour to match seasonal branding — updated without replacing the unit itself.",
-    tags: ["Solid colour", "Brand match", "Quick turnaround"],
+      "A retail display stand wrapped in a bold floral digital print to match seasonal branding — updated without replacing the unit itself.",
+    tags: ["Floral digital print", "Brand match", "Quick turnaround"],
+  },
+  {
+    category: "LIFTS",
+    title: "Lift refresh",
+    image: IMAGES.lift1,
+    alt: "Lift wrapped in a brushed metal finish",
+    blurb:
+      "A tired office block elevator doors and interior panels wrapped in a sleek brushed-metal finish — transformed in place without removing the existing panels or taking the lift out of service for long.",
+    tags: ["Metal finish", "Installed in place", "Minimal downtime"],
   },
   {
     category: "OFFICES",
@@ -182,10 +182,10 @@ const CASE_STUDIES = [
   {
     category: "GLAZING",
     title: "Glazing & partitions",
-    image: "/case-studies/glass.jpg",
+    image: IMAGES.glassBranding,
     alt: "Internal glass partition finished with frosted film",
     blurb:
-      "Frosted film applied to internal glass partitions for privacy and a cleaner, more considered look — without replacing the glass itself.",
+      "Frosted film applied to internal glass partitions or glass doors for privacy and a cleaner, more considered look — without replacing the glass itself. The vinyl also offers heat insulation benefits in the summer months. Business name and logo can also be applied to the frosted film to serve as branding too.",
     tags: ["Frosted film", "Privacy", "No glass replacement"],
   },
 ];
@@ -449,8 +449,8 @@ export default function CommercialPage() {
               COMMERCIAL WORK
             </p>
             <h2 className="mt-4 max-w-2xl font-display text-[clamp(2rem,5vw,3.75rem)] font-light leading-[1.05] tracking-[-0.02em] text-white">
-              Built for{" "}
-              <span className="italic text-[#B8860B]">heavy use</span>.
+              Built for <span className="italic text-[#B8860B]">heavy use</span>
+              .
             </h2>
 
             <div className="mt-16 space-y-16 sm:space-y-24">
@@ -465,7 +465,7 @@ export default function CommercialPage() {
                     <Image
                       src={study.image}
                       alt={study.alt}
-                      className="h-[300px] w-full object-cover sm:h-[380px]"
+                      className="h-[400px] w-full object-cover sm:h-[480px]"
                     />
                   </div>
                   <div>
@@ -482,7 +482,7 @@ export default function CommercialPage() {
                       {study.tags.map((tag) => (
                         <li
                           key={tag}
-                          className="border border-white/15 px-3 py-1.5 font-mono text-[9px] tracking-[0.2em] text-white/60">
+                          className="border hover:border-[#B8860B] transition-colors duration-300 hover:text-[#B8860B] border-white/15 px-3 py-1.5 font-mono text-[9px] tracking-[0.2em] text-white/60">
                           {tag.toUpperCase()}
                         </li>
                       ))}
@@ -523,22 +523,6 @@ export default function CommercialPage() {
                 </li>
               ))}
             </ul>
-          </div>
-        </section>
-
-        {/* FAQ */}
-        <section
-          id="commercial-faq"
-          data-swatch="#4A5D4E"
-          className="bg-[#F7F7F5] py-24 sm:py-32">
-          <div className="mx-auto max-w-3xl px-6 lg:px-10">
-            <p className="font-mono text-[10px] tracking-[0.4em] text-[#4A5D4E]">
-              FAQ — COMMERCIAL PROJECTS
-            </p>
-            <h2 className="mt-4 font-display text-[clamp(2rem,5vw,3.75rem)] font-light leading-[1.05] tracking-[-0.02em] text-[#121212]">
-              You asked,{" "}
-              <span className="italic text-[#4A5D4E]">we answered</span>.
-            </h2>
           </div>
         </section>
 

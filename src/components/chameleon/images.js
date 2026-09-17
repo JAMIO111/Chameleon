@@ -30,8 +30,20 @@ import whiteDrawerSrc from "@/assets/gallery/white-drawer.jpg?w=1200&format=webp
 import whiteDrawerSrcSet from "@/assets/gallery/white-drawer.jpg?w=480;768;1200;1600&format=webp&as=srcset";
 import fittedWardrobeSrc from "@/assets/gallery/fitted-wardrobe.jpg?w=1200&format=webp";
 import fittedWardrobeSrcSet from "@/assets/gallery/fitted-wardrobe.jpg?w=480;768;1200;1600&format=webp&as=srcset";
+import lift1Src from "@/assets/gallery/lift-1.jpg?w=1200&format=webp";
+import lift1SrcSet from "@/assets/gallery/lift-1.jpg?w=480;768;1200;1600&format=webp&as=srcset";
+import retailStand1Src from "@/assets/gallery/retail-stand-1.jpg?w=1200&format=webp";
+import retailStand1SrcSet from "@/assets/gallery/retail-stand-1.jpg?w=480;768;1200;1600&format=webp&as=srcset";
+import retailStand2Src from "@/assets/gallery/retail-stand-2.jpg?w=1200&format=webp";
+import retailStand2SrcSet from "@/assets/gallery/retail-stand-2.jpg?w=480;768;1200;1600&format=webp&as=srcset";
+import glassBrandingSrc from "@/assets/gallery/glass-branding.jpg?w=1200&format=webp";
+import glassBrandingSrcSet from "@/assets/gallery/glass-branding.jpg?w=480;768;1200;1600&format=webp&as=srcset";
 
 export const IMAGES = {
+  lift1: { src: lift1Src, srcSet: lift1SrcSet },
+  retailStand1: { src: retailStand1Src, srcSet: retailStand1SrcSet },
+  retailStand2: { src: retailStand2Src, srcSet: retailStand2SrcSet },
+  glassBranding: { src: glassBrandingSrc, srcSet: glassBrandingSrcSet },
   beforeHero: { src: beforeHeroSrc, srcSet: beforeHeroSrcSet },
   afterHero: { src: afterHeroSrc, srcSet: afterHeroSrcSet },
   matteSaharaKitchen: {
