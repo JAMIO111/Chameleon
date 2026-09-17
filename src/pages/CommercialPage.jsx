@@ -4,19 +4,13 @@ import {
   ChefHat,
   ConciergeBell,
   DoorClosed,
-  GlassWater,
   Hotel,
   MoveVertical,
   Sofa,
   Store,
   Table2,
+  Grid2x2,
 } from "lucide-react";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { Image } from "@/components/ui/image";
 import Navbar from "@/components/chameleon/Navbar";
 import Footer from "@/components/chameleon/Footer";
@@ -27,27 +21,30 @@ const WRAP_CATEGORIES = [
   {
     icon: Building2,
     title: "Offices",
-    blurb: "Desks, partitions, doors and cabinetry refreshed with minimal downtime.",
+    blurb:
+      "Desks, partitions, doors and window sills updated with minimal downtime.",
   },
   {
     icon: Store,
     title: "Retail & Showrooms",
-    blurb: "Customer-facing surfaces updated without disrupting trading hours.",
+    blurb: "Customer-facing surfaces refreshed with new or seasonal branding.",
   },
   {
     icon: Hotel,
     title: "Hotels & Hospitality",
-    blurb: "Reception counters, bars and fitted furniture wrapped to a premium finish.",
+    blurb: "Reception counters, bars and fitted furniture wrapped in place.",
   },
   {
     icon: MoveVertical,
     title: "Lifts",
-    blurb: "Lift doors and surrounding panels transformed in place.",
+    blurb:
+      "Lift doors and surrounding panels wrapped in our premium vinyl to really elevate the look.",
   },
   {
     icon: ChefHat,
     title: "Commercial Kitchens",
-    blurb: "Cabinet doors and worktops wrapped in durable, easy-clean finishes.",
+    blurb:
+      "Cabinet doors and worktops wrapped in durable, easy-clean finishes that can be removed and replaced at any time.",
   },
   {
     icon: Sofa,
@@ -60,9 +57,10 @@ const WRAP_CATEGORIES = [
     blurb: "Existing doors and frames refreshed without full replacement.",
   },
   {
-    icon: GlassWater,
+    icon: Grid2x2,
     title: "Glass & Glazing",
-    blurb: "Frosted, coloured and decorative films for windows and partitions.",
+    blurb:
+      "Frosted, coloured, branded and decorative films for windows and partitions.",
   },
   {
     icon: ConciergeBell,
@@ -90,16 +88,17 @@ const SURFACES = [
   "Laminate",
   "Metal",
   "Glass",
-  "Existing fitted furniture",
-  "Doors",
-  "Cabinets",
-  "Worktops",
-  "Lift panels",
+  "Selected plastics",
+  "Composite materials",
+  "Smooth sealed surfaces",
 ];
 
 const FINISHES = [
+  "Digital graphics",
+  "Custom Branding",
   "Wood-effect",
-  "Stone & marble",
+  "Marble",
+  "Stone",
   "Metal",
   "Matte",
   "Gloss",
@@ -111,22 +110,26 @@ const PROCESS_STEPS = [
   {
     n: "01",
     title: "Consultation",
-    blurb: "Tell us about your commercial space and what you'd like to transform.",
+    blurb:
+      "Tell us about your commercial space and what you'd like to transform.",
   },
   {
     n: "02",
     title: "Site Assessment",
-    blurb: "We assess the existing surfaces, measurements and project requirements.",
+    blurb:
+      "We assess the existing surfaces, measurements and project requirements.",
   },
   {
     n: "03",
     title: "Quote",
-    blurb: "You receive a clear, no-obligation quotation based on the scope of work.",
+    blurb:
+      "You receive a clear, no-obligation quotation based on the scope of work.",
   },
   {
     n: "04",
     title: "Preparation",
-    blurb: "Surfaces are prepared to ensure the vinyl can be installed correctly.",
+    blurb:
+      "Surfaces are prepared to ensure the vinyl can be installed correctly.",
   },
   {
     n: "05",
@@ -136,7 +139,8 @@ const PROCESS_STEPS = [
   {
     n: "06",
     title: "Completion",
-    blurb: "Your newly transformed space is inspected and handed back ready to use.",
+    blurb:
+      "Your newly transformed space is inspected and handed back ready to use.",
   },
 ];
 
@@ -154,57 +158,6 @@ const WHY_CHAMELEON = [
   "Professional, tidy installation",
   "12-month warranty on lifts and peels",
   "Free, no-obligation quotations",
-];
-
-const FAQS = [
-  {
-    q: "How much does commercial vinyl wrapping cost?",
-    a: "Cost depends on the scope, surfaces and finish involved. Send us some photos and a few details about the space and we'll provide a free, no-obligation quotation.",
-  },
-  {
-    q: "Can you wrap office furniture?",
-    a: "Yes — desks, cabinets, partitions and other fitted furniture can usually be wrapped, subject to an assessment of the existing surface.",
-  },
-  {
-    q: "Can you wrap lift doors?",
-    a: "Yes, lift doors and surrounding panels can be transformed in place.",
-  },
-  {
-    q: "Can you wrap existing worktops?",
-    a: "In most cases, yes. Suitability depends on the worktop material and its current condition.",
-  },
-  {
-    q: "Can you wrap glass?",
-    a: "Yes, we can apply decorative and frosted films to glass and glazing.",
-  },
-  {
-    q: "How durable is commercial vinyl?",
-    a: "It's built to withstand everyday commercial use, though it isn't indestructible — we'll advise on the right finish for a high-traffic space.",
-  },
-  {
-    q: "How long does installation take?",
-    a: "This depends on the size and scope of the project — we'll confirm a timeframe as part of your quotation.",
-  },
-  {
-    q: "Will my business need to close during installation?",
-    a: "Not usually. We aim to work around your business wherever possible — this is discussed when we assess your project.",
-  },
-  {
-    q: "Can you work outside normal business hours?",
-    a: "This can often be arranged — let us know your requirements when you enquire.",
-  },
-  {
-    q: "What surfaces can be wrapped?",
-    a: "Most hard surfaces, including wood, MDF, laminate, metal and some glass. Every project is assessed individually.",
-  },
-  {
-    q: "Can you match our existing branding?",
-    a: "We work with a wide range of colours and finishes — get in touch to discuss your requirements.",
-  },
-  {
-    q: "Do you cover my area?",
-    a: "We're based in Newcastle upon Tyne and cover the surrounding North East. Get in touch and we'll confirm.",
-  },
 ];
 
 const buttonGold =
@@ -238,9 +191,9 @@ export default function CommercialPage() {
               <span className="italic text-[#B8860B]">Vinyl Wrapping</span>.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg">
-              Transform commercial interiors, fitted furniture, doors,
-              worktops and glazing with premium architectural vinyl — without
-              the disruption and cost of full replacement.
+              Transform commercial interiors, lifts, windows and glass doors
+              with premium architectural vinyl — without the disruption and cost
+              of full replacement.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-4">
               <Link to="/contact" className={buttonGold}>
@@ -319,9 +272,8 @@ export default function CommercialPage() {
               ))}
             </div>
             <p className="mt-6 text-[13px] leading-relaxed text-white/40">
-              Suitability depends on the condition and material of your
-              existing surfaces — every commercial project is assessed
-              individually.
+              Suitability depends on the condition and material of your existing
+              surfaces — every commercial project is assessed individually.
             </p>
           </div>
         </section>
@@ -336,7 +288,8 @@ export default function CommercialPage() {
               MATERIALS & FINISHES
             </p>
             <h2 className="mt-4 font-display text-[clamp(2rem,5vw,3.75rem)] font-light leading-[1.05] tracking-[-0.02em] text-[#121212]">
-              Surfaces we <span className="italic text-[#4A5D4E]">transform</span>.
+              Surfaces we{" "}
+              <span className="italic text-[#4A5D4E]">transform</span>.
             </h2>
 
             <div className="mt-10 grid gap-10 sm:grid-cols-2">
@@ -424,13 +377,15 @@ export default function CommercialPage() {
               BUILT AROUND YOUR BUSINESS
             </p>
             <h2 className="mt-4 font-display text-[clamp(2rem,5vw,3.75rem)] font-light leading-[1.05] tracking-[-0.02em] text-[#121212]">
-              Keep your business <span className="italic text-[#B8860B]">moving</span>.
+              Keep your business{" "}
+              <span className="italic text-[#B8860B]">moving</span>.
             </h2>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-[#121212]/70">
               Commercial refurbishment doesn&rsquo;t have to mean closing your
               space or major construction work. Vinyl wrapping transforms
               existing surfaces with far less disruption than a full
-              replacement.
+              replacement. In most cases we will work around you where possible
+              to minimize any disruption to your business operations.
             </p>
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">
               {DISRUPTION_POINTS.map((point) => (
@@ -469,8 +424,8 @@ export default function CommercialPage() {
                 </h2>
                 <p className="mt-6 max-w-xl text-base leading-relaxed text-white/70">
                   Commercial cabinetry wrapped in a durable, seamless finish —
-                  the same hand-applied approach we use across offices,
-                  retail and hospitality projects.
+                  the same hand-applied approach we use across offices, retail
+                  and hospitality projects.
                 </p>
                 <Link
                   to="/#work"
@@ -518,32 +473,9 @@ export default function CommercialPage() {
               FAQ — COMMERCIAL PROJECTS
             </p>
             <h2 className="mt-4 font-display text-[clamp(2rem,5vw,3.75rem)] font-light leading-[1.05] tracking-[-0.02em] text-[#121212]">
-              You asked, <span className="italic text-[#4A5D4E]">we answered</span>.
+              You asked,{" "}
+              <span className="italic text-[#4A5D4E]">we answered</span>.
             </h2>
-
-            <Accordion type="single" collapsible className="mt-12">
-              {FAQS.map((item, i) => (
-                <AccordionItem
-                  key={item.q}
-                  value={`commercial-faq-${i}`}
-                  className="border-b border-[#121212]/10">
-                  <AccordionTrigger className="group gap-4 py-6 text-left hover:no-underline [&>svg]:hidden">
-                    <span className="font-mono text-[10px] tracking-[0.25em] text-[#4A5D4E]">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span className="flex-1 font-display text-lg font-normal leading-snug text-[#121212]">
-                      {item.q}
-                    </span>
-                    <span className="font-mono text-lg text-[#B8860B] transition-transform duration-300 group-data-[state=open]:rotate-45">
-                      +
-                    </span>
-                  </AccordionTrigger>
-                  <AccordionContent className="pb-6 pl-9 pr-8 text-base leading-relaxed text-[#121212]/60">
-                    {item.a}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
           </div>
         </section>
 
@@ -554,13 +486,14 @@ export default function CommercialPage() {
           className="bg-[#121212] py-24 sm:py-32">
           <div className="mx-auto max-w-3xl px-6 text-center lg:px-10">
             <h2 className="font-display text-[clamp(2rem,5vw,3.75rem)] font-light leading-[1.05] tracking-[-0.02em] text-white">
-              Transform your commercial space,{" "}
-              <span className="italic text-[#B8860B]">without replacing it</span>.
+              To transform your commercial space,{" "}
+              <span className="italic block text-[#B8860B]">
+                Trust Chameleon.
+              </span>
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-white/70">
-              Tell us what you&rsquo;d like to transform and we&rsquo;ll
-              assess your project and provide a tailored, no-obligation
-              quotation.
+              Tell us what you&rsquo;d like to transform and we&rsquo;ll assess
+              your project and provide a tailored, no-obligation quotation.
             </p>
             <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
               <Link to="/contact" className={buttonGold}>
