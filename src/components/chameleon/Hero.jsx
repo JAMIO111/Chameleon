@@ -50,7 +50,7 @@ export default function Hero() {
           draggable={false}
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <span className="pointer-events-none absolute bottom-24 right-16 z-4 flex items-center justify-center border-2 border-white px-3 py-2 text-[18px] font-medium tracking-[0.35em] text-white">
+        <span className="pointer-events-none absolute bottom-24 right-16 z-4 flex items-center justify-center border-2 border-[#666] px-3 py-2 text-[18px] font-medium tracking-[0.35em] text-[#666]">
           BEFORE
         </span>
 
@@ -63,7 +63,7 @@ export default function Hero() {
             draggable={false}
             className="absolute inset-0 h-full w-full object-cover"
           />
-          <span className="pointer-events-none absolute bottom-24 px-6 right-16 z-10 flex items-center justify-center border-2 border-black py-2 text-[18px] font-medium tracking-[0.35em] text-black">
+          <span className="pointer-events-none absolute bottom-24 px-6 right-16 z-10 flex items-center justify-center border-2 border-[#666] py-2 text-[18px] font-medium tracking-[0.35em] text-[#666]">
             AFTER
           </span>
         </div>
