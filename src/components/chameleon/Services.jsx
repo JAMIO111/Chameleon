@@ -11,6 +11,7 @@ const SERVICES = [
     blurb:
       "Offices, bars, lifts and retail counters transformed with minimal downtime — hard-wearing wraps built for heavy use.",
     swatch: "#B8860B",
+    link: "/services/commercial",
   },
   {
     word: "KITCHEN",
