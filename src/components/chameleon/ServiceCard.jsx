@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { Image } from "@/components/ui/image";
-import { Link } from "react-router-dom";
 
 export default function ServiceCard({ service, onHover, onLeave }) {
   const EnquireLink = service.href ? Link : "a";
