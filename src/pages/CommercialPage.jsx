@@ -158,16 +158,16 @@ const CASE_STUDIES = [
   {
     category: "RETAIL",
     title: "Retail display refresh",
-    images: [IMAGES.retailStand1, IMAGES.retailStand2],
+    images: [IMAGES.retailStand1, IMAGES.retailStand2, IMAGES.retailStand3],
     alt: "Retail display stand wrapped in a floral digital print ready for a seasonal marketing campaign",
     blurb:
-      "A retail display stand wrapped in a bold floral digital print to match seasonal branding — updated without replacing the unit itself.",
+      "A retail display stand wrapped in a bold floral digital print to match seasonal branding — updated without replacing the unit itself and easily removed when the time comes, again, for a new look",
     tags: ["Floral digital print", "Brand match", "Quick turnaround"],
   },
   {
     category: "LIFTS",
     title: "Lift refresh",
-    images: [IMAGES.lift1],
+    images: [IMAGES.lift1, IMAGES.lift2],
     alt: "Lift wrapped in a brushed metal finish",
     blurb:
       "A tired office block elevator doors and interior panels wrapped in a sleek brushed-metal finish — transformed in place without removing the existing panels or taking the lift out of service for long.",
@@ -176,20 +176,37 @@ const CASE_STUDIES = [
   {
     category: "OFFICES",
     title: "Office fit-out refresh",
-    images: ["/case-studies/office.jpg"],
-    alt: "Office desks and cabinetry wrapped in a matte finish",
+    images: [IMAGES.hallway1, IMAGES.hallway2, IMAGES.hallway3],
+    alt: "Office doors and walls in a wood and concrete effect vinyl",
     blurb:
-      "Desks, partitions and cabinetry across an open-plan office wrapped in a consistent matte finish, refreshing the space with minimal disruption to the working day.",
-    tags: ["Matte finish", "Fitted furniture", "Worked around business hours"],
+      "All doors and frames stripped and re-wrapped with this beautiful wood-effect vinyl and walls finished in a concrete effect from our premium range to completely transform this office space.",
+    tags: ["Wood & Concrete", "Doors and walls", "Complete transformation"],
   },
   {
     category: "GLAZING",
     title: "Glazing & partitions",
-    images: [IMAGES.glassBranding],
+    images: [
+      IMAGES.glassBranding1,
+      IMAGES.glassBranding2,
+      IMAGES.glassBranding3,
+    ],
     alt: "Internal glass partition finished with frosted film",
     blurb:
       "Frosted film applied to internal glass partitions or glass doors for privacy and a cleaner, more considered look — without replacing the glass itself. The vinyl also offers heat insulation benefits in the summer months. Business name and logo can also be applied to the frosted film to serve as branding too.",
     tags: ["Frosted film", "Privacy", "No glass replacement"],
+  },
+  {
+    category: "AMAZON DROPBOXES",
+    title: "Amazon dropbox collaboration",
+    images: [
+      IMAGES.commercialCabinet,
+      IMAGES.amazonDropbox1,
+      IMAGES.amazonDropbox2,
+    ],
+    alt: "Amazon drop boxes wrapped outside St James' Park",
+    blurb:
+      "An Amazon dropbox updated with the famous black and white stripes of Newcastle United. Situated right outside St James' Park, this was only ever going to be the correct design for the job.",
+    tags: ["Branded vinyl", "Quick update", "No replacement needed"],
   },
 ];
 
@@ -287,9 +304,9 @@ export default function CommercialPage() {
               <Link to="/contact" className={buttonGold}>
                 REQUEST A COMMERCIAL QUOTE
               </Link>
-              <Link to="/#work" className={buttonOutline}>
+              <a href="#commercial-work" className={buttonOutline}>
                 SEE OUR WORK
-              </Link>
+              </a>
             </div>
           </div>
         </section>
@@ -329,40 +346,62 @@ export default function CommercialPage() {
           </div>
         </section>
 
-        {/* Why vinyl instead of replacement */}
+        {/* Case studies */}
         <section
-          id="why-vinyl"
-          data-swatch="#B8860B"
+          id="commercial-work"
+          data-swatch="#8A8F98"
           className="bg-[#121212] py-24 sm:py-32">
-          <div className="mx-auto max-w-4xl px-6 lg:px-10">
+          <div className="mx-auto max-w-7xl px-6 lg:px-10">
             <p className="font-mono text-[10px] tracking-[0.4em] text-[#4A5D4E]">
-              THE CASE FOR WRAPPING
+              COMMERCIAL WORK
             </p>
-            <h2 className="mt-4 font-display text-[clamp(2rem,5vw,3.75rem)] font-light leading-[1.05] tracking-[-0.02em] text-white">
-              A smarter alternative to{" "}
-              <span className="italic text-[#B8860B]">replacement</span>.
+            <h2 className="mt-4 max-w-3xl font-display text-[clamp(2rem,5vw,3.75rem)] font-light leading-[1.05] tracking-[-0.02em] text-white">
+              From existing to{" "}
+              <span className="italic text-[#B8860B]">exceptional</span>.
             </h2>
-            <p className="mt-4 max-w-lg text-sm leading-relaxed text-white/60">
-              Vinyl wrapping refreshes what&rsquo;s already there, rather than
-              tearing it out.
+            <p className="mt-4 max-w-3xl text-sm leading-relaxed text-white/70">
+              Real commercial projects. Thoughtful transformations. Explore how
+              premium vinyl wrapping can give existing spaces a completely new
+              identity.
             </p>
 
-            <div className="mt-10 divide-y divide-white/10 border-y border-white/10">
-              {COMPARISON_ROWS.map((r) => (
+            <div className="mt-16 space-y-16 sm:space-y-24">
+              {CASE_STUDIES.map((study, i) => (
                 <div
-                  key={r.was}
-                  className="grid grid-cols-1 gap-2 py-5 sm:grid-cols-2 sm:gap-8">
-                  <p className="text-sm text-white/40">{r.was}</p>
-                  <p className="font-display text-base text-white sm:text-lg">
-                    <span className="text-[#B8860B]">→</span> {r.now}
-                  </p>
+                  key={study.title}
+                  className={`${i % 2 === 1 ? "lg:grid-cols-[1.2fr_0.8fr]" : "lg:grid-cols-[0.8fr_1.2fr]"} grid items-center gap-10 border-t border-white/10 pt-12 first:border-t-0 first:pt-0 lg:gap-14`}>
+                  <div className={i % 2 === 1 ? "lg:order-2" : ""}>
+                    <CaseStudyImages images={study.images} alt={study.alt} />
+                  </div>
+                  <div>
+                    <p className="font-mono text-[10px] tracking-[0.3em] text-[#4A5D4E]">
+                      CASE STUDY — {study.category}
+                    </p>
+                    <h3 className="mt-3 font-display text-2xl font-light text-white sm:text-3xl">
+                      {study.title}
+                    </h3>
+                    <p className="mt-4 max-w-xl text-base leading-relaxed text-white/70">
+                      {study.blurb}
+                    </p>
+                    <ul className="mt-5 flex flex-wrap gap-2">
+                      {study.tags.map((tag) => (
+                        <li
+                          key={tag}
+                          className="border hover:border-[#B8860B] transition-colors duration-300 hover:text-[#B8860B] border-white/15 px-3 py-1.5 font-mono text-[9px] tracking-[0.2em] text-white/60">
+                          {tag.toUpperCase()}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               ))}
             </div>
-            <p className="mt-6 text-[13px] leading-relaxed text-white/40">
-              Suitability depends on the condition and material of your existing
-              surfaces — every commercial project is assessed individually.
-            </p>
+
+            <Link
+              to="/#work"
+              className="mt-16 inline-block font-mono text-[10px] tracking-[0.3em] text-[#B8860B] transition-colors hover:text-white">
+              SEE MORE OF OUR WORK →
+            </Link>
           </div>
         </section>
 
@@ -424,34 +463,40 @@ export default function CommercialPage() {
           </div>
         </section>
 
-        {/* Process */}
+        {/* Why vinyl instead of replacement */}
         <section
-          id="process"
-          data-swatch="#4A5D4E"
+          id="why-vinyl"
+          data-swatch="#B8860B"
           className="bg-[#121212] py-24 sm:py-32">
-          <div className="mx-auto max-w-5xl px-6 lg:px-10">
+          <div className="mx-auto max-w-4xl px-6 lg:px-10">
             <p className="font-mono text-[10px] tracking-[0.4em] text-[#4A5D4E]">
-              THE COMMERCIAL PROCESS
+              THE CASE FOR WRAPPING
             </p>
             <h2 className="mt-4 font-display text-[clamp(2rem,5vw,3.75rem)] font-light leading-[1.05] tracking-[-0.02em] text-white">
-              How it <span className="italic text-[#4A5D4E]">works</span>.
+              A smarter alternative to{" "}
+              <span className="italic text-[#B8860B]">replacement</span>.
             </h2>
+            <p className="mt-4 max-w-lg text-sm leading-relaxed text-white/60">
+              Vinyl wrapping refreshes what&rsquo;s already there, rather than
+              tearing it out.
+            </p>
 
-            <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {PROCESS_STEPS.map((step) => (
-                <div key={step.n} className="border-t border-white/10 pt-5">
-                  <span className="font-mono text-[11px] tracking-[0.25em] text-[#B8860B]">
-                    {step.n}
-                  </span>
-                  <h3 className="mt-2 font-display text-xl font-light text-white">
-                    {step.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-white/60">
-                    {step.blurb}
+            <div className="mt-10 divide-y divide-white/10 border-y border-white/10">
+              {COMPARISON_ROWS.map((r) => (
+                <div
+                  key={r.was}
+                  className="grid grid-cols-1 gap-2 py-5 sm:grid-cols-2 sm:gap-8">
+                  <p className="text-sm text-white/40">{r.was}</p>
+                  <p className="font-display text-base text-white sm:text-lg">
+                    <span className="text-[#B8860B]">→</span> {r.now}
                   </p>
                 </div>
               ))}
             </div>
+            <p className="mt-6 text-[13px] leading-relaxed text-white/40">
+              Suitability depends on the condition and material of your existing
+              surfaces — every commercial project is assessed individually.
+            </p>
           </div>
         </section>
 
@@ -488,57 +533,34 @@ export default function CommercialPage() {
           </div>
         </section>
 
-        {/* Case studies */}
+        {/* Process */}
         <section
-          id="commercial-work"
-          data-swatch="#8A8F98"
+          id="process"
+          data-swatch="#4A5D4E"
           className="bg-[#121212] py-24 sm:py-32">
-          <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="mx-auto max-w-5xl px-6 lg:px-10">
             <p className="font-mono text-[10px] tracking-[0.4em] text-[#4A5D4E]">
-              COMMERCIAL WORK
+              THE COMMERCIAL PROCESS
             </p>
-            <h2 className="mt-4 max-w-2xl font-display text-[clamp(2rem,5vw,3.75rem)] font-light leading-[1.05] tracking-[-0.02em] text-white">
-              Built for <span className="italic text-[#B8860B]">heavy use</span>
-              .
+            <h2 className="mt-4 font-display text-[clamp(2rem,5vw,3.75rem)] font-light leading-[1.05] tracking-[-0.02em] text-white">
+              How it <span className="italic text-[#4A5D4E]">works</span>.
             </h2>
 
-            <div className="mt-16 space-y-16 sm:space-y-24">
-              {CASE_STUDIES.map((study, i) => (
-                <div
-                  key={study.title}
-                  className="grid items-center gap-10 border-t border-white/10 pt-12 first:border-t-0 first:pt-0 lg:grid-cols-2 lg:gap-14">
-                  <div className={i % 2 === 1 ? "lg:order-2" : ""}>
-                    <CaseStudyImages images={study.images} alt={study.alt} />
-                  </div>
-                  <div>
-                    <p className="font-mono text-[10px] tracking-[0.3em] text-[#4A5D4E]">
-                      CASE STUDY — {study.category}
-                    </p>
-                    <h3 className="mt-3 font-display text-2xl font-light text-white sm:text-3xl">
-                      {study.title}
-                    </h3>
-                    <p className="mt-4 max-w-xl text-base leading-relaxed text-white/70">
-                      {study.blurb}
-                    </p>
-                    <ul className="mt-5 flex flex-wrap gap-2">
-                      {study.tags.map((tag) => (
-                        <li
-                          key={tag}
-                          className="border hover:border-[#B8860B] transition-colors duration-300 hover:text-[#B8860B] border-white/15 px-3 py-1.5 font-mono text-[9px] tracking-[0.2em] text-white/60">
-                          {tag.toUpperCase()}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+            <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {PROCESS_STEPS.map((step) => (
+                <div key={step.n} className="border-t border-white/10 pt-5">
+                  <span className="font-mono text-[11px] tracking-[0.25em] text-[#B8860B]">
+                    {step.n}
+                  </span>
+                  <h3 className="mt-2 font-display text-xl font-light text-white">
+                    {step.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-white/60">
+                    {step.blurb}
+                  </p>
                 </div>
               ))}
             </div>
-
-            <Link
-              to="/#work"
-              className="mt-16 inline-block font-mono text-[10px] tracking-[0.3em] text-[#B8860B] transition-colors hover:text-white">
-              SEE MORE OF OUR WORK →
-            </Link>
           </div>
         </section>
 

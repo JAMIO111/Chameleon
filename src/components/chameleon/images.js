@@ -18,8 +18,8 @@ import commercialCabinetSrc from "@/assets/gallery/commercial-cabinet.png?w=1200
 import commercialCabinetSrcSet from "@/assets/gallery/commercial-cabinet.png?w=480;768;1200;1600&format=webp&as=srcset";
 import oakTopSrc from "@/assets/gallery/oak-top.png?w=1200&format=webp";
 import oakTopSrcSet from "@/assets/gallery/oak-top.png?w=480;768;1200;1600&format=webp&as=srcset";
-import matteBlackKitchenSrc from "@/assets/gallery/matte-black-kitchen.png?w=1200&format=webp";
-import matteBlackKitchenSrcSet from "@/assets/gallery/matte-black-kitchen.png?w=480;768;1200;1600&format=webp&as=srcset";
+import matteBlackKitchenSrc from "@/assets/gallery/matte-black-kitchen.jpg?w=1200&format=webp";
+import matteBlackKitchenSrcSet from "@/assets/gallery/matte-black-kitchen.jpg?w=480;768;1200;1600&format=webp&as=srcset";
 import beigeMarbleMediaWallSrc from "@/assets/gallery/beige-marble-media-wall.png?w=1200&format=webp";
 import beigeMarbleMediaWallSrcSet from "@/assets/gallery/beige-marble-media-wall.png?w=480;768;1200;1600&format=webp&as=srcset";
 import fitterWorkingSrc from "@/assets/gallery/fitter-working.png?w=1200&format=webp";
@@ -32,23 +32,56 @@ import fittedWardrobeSrc from "@/assets/gallery/fitted-wardrobe.jpg?w=1200&forma
 import fittedWardrobeSrcSet from "@/assets/gallery/fitted-wardrobe.jpg?w=480;768;1200;1600&format=webp&as=srcset";
 import lift1Src from "@/assets/gallery/lift-1.jpg?w=1200&format=webp";
 import lift1SrcSet from "@/assets/gallery/lift-1.jpg?w=480;768;1200;1600&format=webp&as=srcset";
+import lift2Src from "@/assets/gallery/lift-2.jpg?w=1200&format=webp";
+import lift2SrcSet from "@/assets/gallery/lift-2.jpg?w=480;768;1200;1600&format=webp&as=srcset";
 import retailStand1Src from "@/assets/gallery/retail-stand-1.jpg?w=1200&format=webp";
 import retailStand1SrcSet from "@/assets/gallery/retail-stand-1.jpg?w=480;768;1200;1600&format=webp&as=srcset";
 import retailStand2Src from "@/assets/gallery/retail-stand-2.jpg?w=1200&format=webp";
 import retailStand2SrcSet from "@/assets/gallery/retail-stand-2.jpg?w=480;768;1200;1600&format=webp&as=srcset";
-import glassBrandingSrc from "@/assets/gallery/glass-branding.jpg?w=1200&format=webp";
-import glassBrandingSrcSet from "@/assets/gallery/glass-branding.jpg?w=480;768;1200;1600&format=webp&as=srcset";
+import retailStand3Src from "@/assets/gallery/retail-stand-3.jpg?w=1200&format=webp";
+import retailStand3SrcSet from "@/assets/gallery/retail-stand-3.jpg?w=480;768;1200;1600&format=webp&as=srcset";
+import glassBranding1Src from "@/assets/gallery/glass-branding-1.png?w=1200&format=webp";
+import glassBranding1SrcSet from "@/assets/gallery/glass-branding-1.png?w=480;768;1200;1600&format=webp&as=srcset";
+import glassBranding2Src from "@/assets/gallery/glass-branding-2.png?w=1200&format=webp";
+import glassBranding2SrcSet from "@/assets/gallery/glass-branding-2.png?w=480;768;1200;1600&format=webp&as=srcset";
+import glassBranding3Src from "@/assets/gallery/glass-branding-3.png?w=1200&format=webp";
+import glassBranding3SrcSet from "@/assets/gallery/glass-branding-3.png?w=480;768;1200;1600&format=webp&as=srcset";
+import hallway1Src from "@/assets/gallery/hallway-1.jpg?w=1200&format=webp";
+import hallway1SrcSet from "@/assets/gallery/hallway-1.jpg?w=480;768;1200;1600&format=webp&as=srcset";
+import hallway2Src from "@/assets/gallery/hallway-2.jpg?w=1200&format=webp";
+import hallway2SrcSet from "@/assets/gallery/hallway-2.jpg?w=480;768;1200;1600&format=webp&as=srcset";
+import hallway3Src from "@/assets/gallery/hallway-3.jpg?w=1200&format=webp";
+import hallway3SrcSet from "@/assets/gallery/hallway-3.jpg?w=480;768;1200;1600&format=webp&as=srcset";
+import amazonDropbox1Src from "@/assets/gallery/amazon-drop-box-1.jpg?w=1200&format=webp";
+import amazonDropbox1SrcSet from "@/assets/gallery/amazon-drop-box-1.jpg?w=480;768;1200;1600&format=webp&as=srcset";
+import amazonDropbox2Src from "@/assets/gallery/amazon-drop-box-2.jpg?w=1200&format=webp";
+import amazonDropbox2SrcSet from "@/assets/gallery/amazon-drop-box-2.jpg?w=480;768;1200;1600&format=webp&as=srcset";
+import redKitchenSrc from "@/assets/gallery/red-kitchen.jpg?w=1200&format=webp";
+import redKitchenSrcSet from "@/assets/gallery/red-kitchen.jpg?w=480;768;1200;1600&format=webp&as=srcset";
 
 export const IMAGES = {
   lift1: { src: lift1Src, srcSet: lift1SrcSet },
+  hallway1: { src: hallway1Src, srcSet: hallway1SrcSet },
+  hallway2: { src: hallway2Src, srcSet: hallway2SrcSet },
+  hallway3: { src: hallway3Src, srcSet: hallway3SrcSet },
   retailStand1: { src: retailStand1Src, srcSet: retailStand1SrcSet },
   retailStand2: { src: retailStand2Src, srcSet: retailStand2SrcSet },
-  glassBranding: { src: glassBrandingSrc, srcSet: glassBrandingSrcSet },
+  retailStand3: { src: retailStand3Src, srcSet: retailStand3SrcSet },
+  lift2: { src: lift2Src, srcSet: lift2SrcSet },
+  glassBranding1: { src: glassBranding1Src, srcSet: glassBranding1SrcSet },
+  glassBranding2: { src: glassBranding2Src, srcSet: glassBranding2SrcSet },
+  glassBranding3: { src: glassBranding3Src, srcSet: glassBranding3SrcSet },
   beforeHero: { src: beforeHeroSrc, srcSet: beforeHeroSrcSet },
   afterHero: { src: afterHeroSrc, srcSet: afterHeroSrcSet },
+  amazonDropbox1: { src: amazonDropbox1Src, srcSet: amazonDropbox1SrcSet },
+  amazonDropbox2: { src: amazonDropbox2Src, srcSet: amazonDropbox2SrcSet },
   matteSaharaKitchen: {
     src: matteSaharaKitchenSrc,
     srcSet: matteSaharaKitchenSrcSet,
+  },
+  redKitchen: {
+    src: redKitchenSrc,
+    srcSet: redKitchenSrcSet,
   },
   sageKitchen: { src: sageKitchenSrc, srcSet: sageKitchenSrcSet },
   mediaWall2: { src: mediaWall2Src, srcSet: mediaWall2SrcSet },
