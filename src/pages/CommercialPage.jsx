@@ -156,7 +156,7 @@ const DISRUPTION_POINTS = [
 const CASE_STUDIES = [
   {
     category: "RETAIL",
-    title: "Branded Retail Display ",
+    title: "Decorative Retail Display ",
     images: [IMAGES.retailStand1, IMAGES.retailStand2, IMAGES.retailStand3],
     alt: "Retail display stand wrapped in a floral digital print ready for a seasonal marketing campaign",
     blurb:

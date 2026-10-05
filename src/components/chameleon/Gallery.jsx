@@ -61,7 +61,7 @@ const WORK = [
     meta: "MEDIA WALL / MARBLE",
     blurb: "A media wall wrapped in beige marble.",
     original: "MDF media wall, raw finish",
-    wrap: "Beige marble-effect vinyl, flush TV panel",
+    wrap: "Beige marble-effect vinyl, TV panel",
     benefits: ["Perfect edges", "No painting needed", "Premium finish"],
     aspect: ASPECTS[4],
   },
