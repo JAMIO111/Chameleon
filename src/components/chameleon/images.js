@@ -59,6 +59,8 @@ import amazonDropbox2SrcSet from "@/assets/gallery/amazon-drop-box-2.jpg?w=480;7
 import redKitchenSrc from "@/assets/gallery/red-kitchen.jpg?w=1200&format=webp";
 import redKitchenSrcSet from "@/assets/gallery/red-kitchen.jpg?w=480;768;1200;1600&format=webp&as=srcset";
 
+import { SITE } from "@/lib/site";
+
 export const IMAGES = {
   lift1: { src: lift1Src, srcSet: lift1SrcSet },
   hallway1: { src: hallway1Src, srcSet: hallway1SrcSet },
@@ -108,8 +110,4 @@ export const IMAGES = {
   fittedWardrobe: { src: fittedWardrobeSrc, srcSet: fittedWardrobeSrcSet },
 };
 
-export const SOCIALS = {
-  facebook: "https://www.facebook.com/chameleonhomewrapping/",
-  instagram: "https://www.instagram.com/chameleon_home_wrapping/",
-  linkedin: "https://www.linkedin.com/in/ian-kyle-b1a929130/",
-};
+export const SOCIALS = SITE.socials;

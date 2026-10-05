@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Linkedin, MapPin } from "lucide-react";
+import { Facebook, Instagram, Linkedin, MapPin, Phone } from "lucide-react";
 import { SOCIALS } from "./images";
+import { SITE } from "@/lib/site";
 import { Image } from "@/components/ui/image";
 import logoSrc from "@/assets/logo-no-bg.png?w=300&format=webp";
 
@@ -120,6 +121,13 @@ export default function Footer() {
                     rel="noreferrer"
                     className="flex items-center gap-2 hover:text-white">
                     <Linkedin className="h-3.5 w-3.5" /> Linkedin
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={`tel:${SITE.phone}`}
+                    className="flex items-center gap-2 hover:text-white">
+                    <Phone className="h-3.5 w-3.5" /> {SITE.phoneDisplay}
                   </a>
                 </li>
                 <li className="flex items-center gap-2">

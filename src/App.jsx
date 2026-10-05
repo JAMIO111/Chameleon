@@ -4,6 +4,7 @@ import { queryClientInstance } from "@/lib/query-client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import PageNotFound from "./lib/PageNotFound";
 import ScrollToTop from "./components/ScrollToTop";
+import Seo from "./components/Seo";
 // Add page imports here
 import Home from "@/pages/Home";
 import AboutPage from "@/pages/AboutPage";
@@ -15,6 +16,7 @@ function App() {
     <QueryClientProvider client={queryClientInstance}>
       <Router>
         <ScrollToTop />
+        <Seo />
         <Routes>
           {/* Add your page Route elements here */}
           <Route path="/" element={<Home />} />
