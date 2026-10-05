@@ -35,6 +35,9 @@ export default function Navbar() {
           <Image
             src={logoSrc}
             alt="Chameleon Home Wrapping logo"
+            width={300}
+            height={300}
+            priority
             className="h-14 w-auto object-contain sm:h-12"
           />
           <div className="flex flex-col">

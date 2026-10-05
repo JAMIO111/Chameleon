@@ -47,6 +47,7 @@ export default function Hero() {
         <Image
           src={IMAGES.beforeHero}
           alt="Dated oak kitchen before wrapping"
+          priority
           draggable={false}
           className="absolute inset-0 h-full w-full object-cover"
         />
@@ -60,6 +61,7 @@ export default function Hero() {
           <Image
             src={IMAGES.afterHero}
             alt="The same kitchen wrapped in matte grey vinyl"
+            priority
             draggable={false}
             className="absolute inset-0 h-full w-full object-cover"
           />

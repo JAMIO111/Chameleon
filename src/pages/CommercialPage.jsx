@@ -283,6 +283,7 @@ export default function CommercialPage() {
           <Image
             src={IMAGES.commercialCabinet}
             alt="Commercial cabinetry wrapped in vinyl"
+            priority
             className="absolute inset-0 h-full w-full object-cover opacity-30"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/85 to-[#121212]/50" />

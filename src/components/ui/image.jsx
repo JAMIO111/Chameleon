@@ -10,7 +10,10 @@ const FALLBACK_IMAGE_URL =
  * a missing src.
  */
 export const Image = React.forwardRef(
-  ({ src, sizes = "100vw", alt = "", className, onError, ...props }, ref) => {
+  (
+    { src, sizes = "100vw", alt = "", className, onError, priority, ...props },
+    ref,
+  ) => {
     const [failed, setFailed] = React.useState(false);
     React.useEffect(() => setFailed(false), [src]);
 
@@ -36,7 +39,8 @@ export const Image = React.forwardRef(
         src={resolvedSrc}
         srcSet={resolvedSrcSet}
         sizes={resolvedSrcSet ? sizes : undefined}
-        loading="lazy"
+        loading={priority ? "eager" : "lazy"}
+        fetchpriority={priority ? "high" : undefined}
         alt={alt}
         className={className}
         onError={(event) => {

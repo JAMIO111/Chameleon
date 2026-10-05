@@ -39,6 +39,8 @@ export default function Footer() {
               <Image
                 src={logoSrc}
                 alt="Chameleon Home Wrapping logo"
+                width={300}
+                height={300}
                 className="h-12 w-auto object-contain"
               />
               <div className="flex flex-col">
