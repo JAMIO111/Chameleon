@@ -139,7 +139,9 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-wrap items-center justify-between gap-3 border-t border-white/10 py-6 font-mono text-[10px] tracking-[0.25em] text-white/55">
-          <span>© {new Date().getFullYear()} CHAMELEON HOME WRAPPING</span>
+          <span suppressHydrationWarning>
+            © {new Date().getFullYear()} CHAMELEON HOME WRAPPING
+          </span>
           <span>NEWCASTLE UPON TYNE — SERVING THE NORTH EAST</span>
         </div>
       </div>

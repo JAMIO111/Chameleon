@@ -88,12 +88,18 @@ module.exports = {
   			marquee: {
   				'0%': { transform: 'translateX(0)' },
   				'100%': { transform: 'translateX(-50%)' }
+  			},
+  			wipe: {
+  				'0%': { clipPath: 'inset(0 100% 0 0)' },
+  				'35%': { clipPath: 'inset(0 0 0 0)' },
+  				'70%, 100%': { clipPath: 'inset(0 0 0 100%)' }
   			}
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
-  			marquee: 'marquee 42s linear infinite'
+  			marquee: 'marquee 42s linear infinite',
+  			wipe: 'wipe 4.6s ease-in-out infinite'
   		}
   	}
   },

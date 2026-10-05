@@ -1,7 +1,4 @@
-import { Toaster } from "@/components/ui/toaster";
-import { QueryClientProvider } from "@tanstack/react-query";
-import { queryClientInstance } from "@/lib/query-client";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import PageNotFound from "./lib/PageNotFound";
 import ScrollToTop from "./components/ScrollToTop";
 import Seo from "./components/Seo";
@@ -11,24 +8,19 @@ import AboutPage from "@/pages/AboutPage";
 import ContactPage from "@/pages/ContactPage";
 import CommercialPage from "@/pages/CommercialPage";
 
-function App() {
+export default function App() {
   return (
-    <QueryClientProvider client={queryClientInstance}>
-      <Router>
-        <ScrollToTop />
-        <Seo />
-        <Routes>
-          {/* Add your page Route elements here */}
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/services/commercial" element={<CommercialPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
-      </Router>
-      <Toaster />
-    </QueryClientProvider>
+    <>
+      <ScrollToTop />
+      <Seo />
+      <Routes>
+        {/* Add your page Route elements here */}
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/services/commercial" element={<CommercialPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+    </>
   );
 }
-
-export default App;

@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url'
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 import { imagetools } from 'vite-imagetools'
-import { SITE, ROUTES } from './src/lib/site.js'
+import { SITE, ROUTES, seoHead } from './src/lib/site.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -43,10 +43,8 @@ function siteSeo() {
       order: 'pre',
       handler(html) {
         const tokens = {
-          '%SITE_URL%': SITE.url,
+          '%SEO_HEAD%': seoHead({ ...ROUTES['/'], url: `${SITE.url}/` }),
           '%SITE_NAME%': SITE.name,
-          '%SITE_TITLE%': ROUTES['/'].title,
-          '%SITE_DESCRIPTION%': ROUTES['/'].description,
           '%SITE_IMAGE%': `${SITE.url}${SITE.image}`,
           '%SITE_IMAGE_WIDTH%': String(SITE.imageWidth),
           '%SITE_IMAGE_HEIGHT%': String(SITE.imageHeight),

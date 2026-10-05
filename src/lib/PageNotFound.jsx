@@ -1,12 +1,16 @@
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
 import Navbar from "@/components/chameleon/Navbar";
 import Footer from "@/components/chameleon/Footer";
 import AdaptiveCursor from "@/components/chameleon/AdaptiveCursor";
 
 export default function PageNotFound() {
   const location = useLocation();
-  const pageName = location.pathname.substring(1);
+  // Set after mount so the prerendered 404 page hydrates cleanly at any URL.
+  const [pageName, setPageName] = useState("");
+  useEffect(() => {
+    setPageName(location.pathname.substring(1));
+  }, [location.pathname]);
 
   return (
     <>
@@ -24,26 +28,13 @@ export default function PageNotFound() {
             <h1 className="select-none font-display text-[clamp(6rem,22vw,13rem)] font-light leading-none tracking-[-0.03em] text-white/10">
               404
             </h1>
-            <motion.div
-              className="absolute inset-0 overflow-hidden"
-              initial={{ clipPath: "inset(0 100% 0 0)" }}
-              animate={{
-                clipPath: [
-                  "inset(0 100% 0 0)",
-                  "inset(0 0% 0 0)",
-                  "inset(0 0% 0 100%)",
-                ],
-              }}
-              transition={{
-                duration: 3.2,
-                repeat: Infinity,
-                repeatDelay: 1.4,
-                ease: "easeInOut",
-              }}>
-              <h1 className="select-none font-display text-[clamp(6rem,22vw,13rem)] font-light leading-none tracking-[-0.03em] text-[#B8860B]">
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 animate-wipe overflow-hidden [clip-path:inset(0_100%_0_0)] motion-reduce:animate-none motion-reduce:[clip-path:none]">
+              <p className="select-none font-display text-[clamp(6rem,22vw,13rem)] font-light leading-none tracking-[-0.03em] text-[#B8860B]">
                 404
-              </h1>
-            </motion.div>
+              </p>
+            </div>
           </div>
 
           <h2 className="mt-8 font-display text-[clamp(1.75rem,4vw,2.75rem)] font-light leading-tight text-white">

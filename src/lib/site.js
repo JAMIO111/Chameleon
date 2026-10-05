@@ -25,6 +25,26 @@ export const SITE = {
   },
 };
 
+const esc = (s) =>
+  String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+
+// The tags that differ per page: used for index.html, the prerendered pages
+// and (as the source of truth for values) the runtime Seo component.
+export function seoHead({ title, description, url, noindex = false }) {
+  return [
+    `<title>${esc(title)}</title>`,
+    `<meta name="description" content="${esc(description)}" />`,
+    noindex
+      ? `<meta name="robots" content="noindex" />`
+      : `<link rel="canonical" href="${esc(url)}" />`,
+    `<meta property="og:url" content="${esc(url)}" />`,
+    `<meta property="og:title" content="${esc(title)}" />`,
+    `<meta property="og:description" content="${esc(description)}" />`,
+    `<meta name="twitter:title" content="${esc(title)}" />`,
+    `<meta name="twitter:description" content="${esc(description)}" />`,
+  ].join("\n    ");
+}
+
 export const ROUTES = {
   "/": {
     title: "Chameleon Home Wrapping | Vinyl Wrapping in Newcastle",
