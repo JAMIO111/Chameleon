@@ -5,9 +5,8 @@ export const SITE = {
   name: "Chameleon Home Wrapping",
   url: "https://chameleon-one-ochre.vercel.app",
   email: "hello@chameleonhomewrapping.co.uk",
-  // PLACEHOLDER: Ofcom drama-range number. Replace with the real number.
-  phone: "+447700900123",
-  phoneDisplay: "07700 900123",
+  phone: "+447496024825",
+  phoneDisplay: "07496 024825",
   locality: "Newcastle upon Tyne",
   region: "Tyne and Wear",
   areaServed: [
