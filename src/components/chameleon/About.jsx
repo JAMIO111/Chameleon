@@ -119,7 +119,7 @@ export default function About() {
 
         <div className="relative mt-6 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]">
           <div
-            className={`flex w-max gap-6 animate-marquee hover:[animation-play-state:paused] motion-reduce:animate-none ${
+            className={`flex w-max gap-6 animate-marquee motion-reduce:animate-none ${
               paused ? "[animation-play-state:paused]" : ""
             }`}>
             {[...TESTIMONIALS, ...TESTIMONIALS].map((t, i) => (
