@@ -113,7 +113,7 @@ const PROCESS_STEPS = [
     n: "01",
     title: "Consultation",
     blurb:
-      "Tell us about your commercial space and what you'd like to transform.",
+      "Tell us about your commercial space and what you’d like to transform.",
   },
   {
     n: "02",
@@ -156,29 +156,29 @@ const DISRUPTION_POINTS = [
 const CASE_STUDIES = [
   {
     category: "RETAIL",
-    title: "Decorative Retail Display ",
+    title: "Decorative retail display",
     images: [IMAGES.retailStand1, IMAGES.retailStand2, IMAGES.retailStand3],
     alt: "Retail display stand wrapped in a floral digital print ready for a seasonal marketing campaign",
     blurb:
-      "A retail display stand wrapped in a bold floral digital print to match seasonal branding — updated without replacing the unit itself and easily removed when the time comes, again, for a new look",
+      "A retail display stand wrapped in a bold floral digital print to match seasonal branding — updated without replacing the unit itself, and easily removed when it’s time for another new look.",
     tags: ["Floral digital print", "Brand match", "Quick turnaround"],
   },
   {
     category: "LIFTS",
-    title: "Face-Lift",
+    title: "Face-lift",
     images: [IMAGES.lift1, IMAGES.lift2],
     alt: "Lift wrapped in a brushed metal finish",
     blurb:
-      "A tired office block elevator doors and interior panels wrapped in a sleek brushed-metal finish — transformed in place without removing the existing panels or taking the lift out of service for long.",
+      "The doors and interior panels of a tired office-block lift wrapped in a sleek brushed-metal finish — transformed in place without removing the existing panels or taking the lift out of service for long.",
     tags: ["Metal finish", "Installed in place", "Minimal downtime"],
   },
   {
     category: "OFFICES",
-    title: "Office Makeover",
+    title: "Office makeover",
     images: [IMAGES.hallway1, IMAGES.hallway2, IMAGES.hallway3],
     alt: "Office doors and walls in a wood and concrete effect vinyl",
     blurb:
-      "All doors and frames stripped and re-wrapped with this beautiful wood-effect vinyl and walls finished in a concrete effect from our premium range to completely transform this office space.",
+      "Every door and frame stripped and re-wrapped in a beautiful wood-effect vinyl, with the walls finished in a concrete effect from our premium range — a complete transformation of this office space.",
     tags: ["Wood & Concrete", "Doors and walls", "Complete transformation"],
   },
   {
@@ -202,9 +202,9 @@ const CASE_STUDIES = [
       IMAGES.amazonDropbox1,
       IMAGES.amazonDropbox2,
     ],
-    alt: "Amazon drop boxes wrapped outside St James' Park",
+    alt: "Amazon drop boxes wrapped outside St James’ Park",
     blurb:
-      "An Amazon dropbox updated with the famous black and white stripes of Newcastle United. Situated right outside St James' Park, this was only ever going to be the correct design for the job.",
+      "An Amazon dropbox updated with the famous black and white stripes of Newcastle United. Situated right outside St James’ Park, this was only ever going to be the correct design for the job.",
     tags: ["Branded vinyl", "Quick update", "No replacement needed"],
   },
 ];
@@ -214,7 +214,7 @@ const WHY_CHAMELEON = [
   "Existing surfaces retained wherever possible",
   "A wide range of finishes",
   "Professional, tidy installation",
-  "12-month warranty on lifts and peels",
+  "12-month warranty against lifting and peeling",
   "Free, no-obligation quotations",
 ];
 
@@ -248,7 +248,12 @@ function CaseStudyImages({ images, alt }) {
             className="absolute right-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-[#121212]/70 text-white transition-colors hover:bg-[#121212]">
             <ChevronRight className="h-4 w-4" />
           </button>
-          <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-1.5">
+          <span className="sr-only" aria-live="polite">
+            Image {index + 1} of {images.length}
+          </span>
+          <div
+            aria-hidden="true"
+            className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-1.5">
             {images.map((_, i) => (
               <span
                 key={i}
@@ -288,7 +293,7 @@ export default function CommercialPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/85 to-[#121212]/50" />
           <div className="relative mx-auto max-w-4xl px-6 lg:px-10">
-            <p className="font-mono text-[10px] tracking-[0.4em] text-[#4A5D4E]">
+            <p className="font-mono text-[10px] tracking-[0.4em] text-[#6F8E76]">
               COMMERCIAL — VINYL WRAPPING
             </p>
             <h1 className="mt-4 font-display text-[clamp(2.5rem,7vw,5.5rem)] font-light leading-[1.02] tracking-[-0.02em] text-white">
@@ -337,7 +342,7 @@ export default function CommercialPage() {
                   <h3 className="mt-4 font-display text-base font-normal leading-snug text-[#121212]">
                     {title}
                   </h3>
-                  <p className="mt-2 text-[13px] leading-relaxed text-[#121212]/55">
+                  <p className="mt-2 text-[13px] leading-relaxed text-[#121212]/60">
                     {blurb}
                   </p>
                 </div>
@@ -352,7 +357,7 @@ export default function CommercialPage() {
           data-swatch="#8A8F98"
           className="bg-[#121212] py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
-            <p className="font-mono text-[10px] tracking-[0.4em] text-[#4A5D4E]">
+            <p className="font-mono text-[10px] tracking-[0.4em] text-[#6F8E76]">
               COMMERCIAL WORK
             </p>
             <h2 className="mt-4 max-w-3xl font-display text-[clamp(2rem,5vw,3.75rem)] font-light leading-[1.05] tracking-[-0.02em] text-white">
@@ -374,7 +379,7 @@ export default function CommercialPage() {
                     <CaseStudyImages images={study.images} alt={study.alt} />
                   </div>
                   <div>
-                    <p className="font-mono text-[10px] tracking-[0.3em] text-[#4A5D4E]">
+                    <p className="font-mono text-[10px] tracking-[0.3em] text-[#6F8E76]">
                       CASE STUDY — {study.category}
                     </p>
                     <h3 className="mt-3 font-display text-2xl font-light text-white sm:text-3xl">
@@ -421,7 +426,7 @@ export default function CommercialPage() {
 
             <div className="mt-10 grid gap-10 sm:grid-cols-2">
               <div>
-                <p className="font-mono text-[12px] tracking-[0.3em] text-[#121212]/40">
+                <p className="font-mono text-[12px] tracking-[0.3em] text-[#121212]/60">
                   SURFACES WE CAN APPLY TO
                 </p>
                 <ul className="mt-5 space-y-2.5">
@@ -436,7 +441,7 @@ export default function CommercialPage() {
                 </ul>
               </div>
               <div>
-                <p className="font-mono text-[12px] tracking-[0.3em] text-[#121212]/40">
+                <p className="font-mono text-[12px] tracking-[0.3em] text-[#121212]/60">
                   VINYL FINISHES AVAILABLE
                 </p>
                 <ul className="mt-5 space-y-2.5">
@@ -451,12 +456,12 @@ export default function CommercialPage() {
                 </ul>
               </div>
             </div>
-            <p className="mt-12 max-w-lg text-[13px] leading-relaxed text-[#121212]/50">
+            <p className="mt-12 max-w-lg text-[13px] leading-relaxed text-[#121212]/60">
               Every project is assessed individually to confirm the existing
               surface is suitable for wrapping.{" "}
               <Link
                 to="/#work"
-                className="text-[#B8860B] underline-offset-2 hover:underline">
+                className="text-[#B8860B] underline underline-offset-2 hover:text-[#9a7009]">
                 Browse the gallery →
               </Link>
             </p>
@@ -469,7 +474,7 @@ export default function CommercialPage() {
           data-swatch="#B8860B"
           className="bg-[#121212] py-24 sm:py-32">
           <div className="mx-auto max-w-4xl px-6 lg:px-10">
-            <p className="font-mono text-[10px] tracking-[0.4em] text-[#4A5D4E]">
+            <p className="font-mono text-[10px] tracking-[0.4em] text-[#6F8E76]">
               THE CASE FOR WRAPPING
             </p>
             <h2 className="mt-4 font-display text-[clamp(2rem,5vw,3.75rem)] font-light leading-[1.05] tracking-[-0.02em] text-white">
@@ -486,14 +491,14 @@ export default function CommercialPage() {
                 <div
                   key={r.was}
                   className="grid grid-cols-1 gap-2 py-5 sm:grid-cols-2 sm:gap-8">
-                  <p className="text-sm text-white/40">{r.was}</p>
+                  <p className="text-sm text-white/55">{r.was}</p>
                   <p className="font-display text-base text-white sm:text-lg">
                     <span className="text-[#B8860B]">→</span> {r.now}
                   </p>
                 </div>
               ))}
             </div>
-            <p className="mt-6 text-[13px] leading-relaxed text-white/40">
+            <p className="mt-6 text-[13px] leading-relaxed text-white/55">
               Suitability depends on the condition and material of your existing
               surfaces — every commercial project is assessed individually.
             </p>
@@ -518,7 +523,7 @@ export default function CommercialPage() {
               space or major construction work. Vinyl wrapping transforms
               existing surfaces with far less disruption than a full
               replacement. In most cases we will work around you where possible
-              to minimize any disruption to your business operations.
+              to minimise any disruption to your business operations.
             </p>
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">
               {DISRUPTION_POINTS.map((point) => (
@@ -539,11 +544,11 @@ export default function CommercialPage() {
           data-swatch="#4A5D4E"
           className="bg-[#121212] py-24 sm:py-32">
           <div className="mx-auto max-w-5xl px-6 lg:px-10">
-            <p className="font-mono text-[10px] tracking-[0.4em] text-[#4A5D4E]">
+            <p className="font-mono text-[10px] tracking-[0.4em] text-[#6F8E76]">
               THE COMMERCIAL PROCESS
             </p>
             <h2 className="mt-4 font-display text-[clamp(2rem,5vw,3.75rem)] font-light leading-[1.05] tracking-[-0.02em] text-white">
-              How it <span className="italic text-[#4A5D4E]">works</span>.
+              How it <span className="italic text-[#6F8E76]">works</span>.
             </h2>
 
             <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -611,7 +616,7 @@ export default function CommercialPage() {
                 REQUEST A COMMERCIAL QUOTE
               </Link>
             </div>
-            <p className="mt-6 font-mono text-[10px] tracking-[0.25em] text-white/40">
+            <p className="mt-6 font-mono text-[10px] tracking-[0.25em] text-white/55">
               hello@chameleonhomewrapping.co.uk
             </p>
           </div>

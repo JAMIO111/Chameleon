@@ -1,40 +1,44 @@
+import { useState } from "react";
+import { Pause, Play } from "lucide-react";
 import { Image } from "@/components/ui/image";
 import { IMAGES } from "./images";
 
 const STATS = [
   { k: "10+", v: "years of combined vinyl-wrapping experience" },
-  { k: "100%", v: "average recomendation from 76 Facebook reviews" },
+  { k: "100%", v: "average recommendation from 76 Facebook reviews" },
   { k: "Infinite", v: "possibilities for transforming your space" },
 ];
 
 const TESTIMONIALS = [
   {
     quote:
-      "From first contact to completion they did a top class makeover very pleased with the outcome. Would definitely use again and would 100% recommend.",
+      "From first contact to completion they did a top class makeover. Very pleased with the outcome. Would definitely use again and would 100% recommend.",
     name: "Richard Porter",
     source: "via Facebook",
   },
   {
     quote:
-      "Highly recommend chameleon, they have totally transformed our kitchen work tops to go in with the new decor. Couldn’t be happier with the result. Very friendly and professional service. Would definitely use again 5 stars.",
+      "Highly recommend Chameleon, they have totally transformed our kitchen work tops to go in with the new decor. Couldn’t be happier with the result. Very friendly and professional service. Would definitely use again. 5 stars.",
     name: "Lancaster Shell",
     source: "via Facebook",
   },
   {
     quote:
-      "I would highly recommend to anyone looking for a quality, professional service. From our first enquiry, to actual instalation everything has been superb. Chameleon worked so hard to ensure we got the best finish possible from the wrapping. We are so pleased with the finish. It has completely changed our kitchen.",
+      "I would highly recommend to anyone looking for a quality, professional service. From our first enquiry, to actual installation everything has been superb. Chameleon worked so hard to ensure we got the best finish possible from the wrapping. We are so pleased with the finish. It has completely changed our kitchen.",
     name: "Lyndsey Robinson",
     source: "via Facebook",
   },
   {
     quote:
-      "Had my kitchen wrapped over the last couple of day and I absolutely love it! Amazing skill and finesse, its just beautiful highly recommend these guys couldn’t fault there service! Professional, timely absolute Marvels at there trade!",
+      "Had my kitchen wrapped over the last couple of days and I absolutely love it! Amazing skill and finesse, it’s just beautiful, highly recommend these guys, couldn’t fault their service! Professional, timely, absolute marvels at their trade!",
     name: "Gemma Muldowney",
     source: "via Facebook",
   },
 ];
 
 export default function About() {
+  const [paused, setPaused] = useState(false);
+
   return (
     <section
       id="about"
@@ -57,7 +61,7 @@ export default function About() {
           </div>
 
           <div>
-            <p className="font-mono text-[10px] tracking-[0.4em] text-[#4A5D4E]">
+            <p className="font-mono text-[10px] tracking-[0.4em] text-[#6F8E76]">
               ABOUT — NEWCASTLE UPON TYNE
             </p>
             <h2 className="mt-4 font-display text-[clamp(2rem,5vw,3.75rem)] font-light leading-[1.05] tracking-[-0.02em] text-white">
@@ -95,26 +99,44 @@ export default function About() {
           </div>
         </div>
 
-        <h2 className="mt-20 font-display text-[clamp(2rem,5vw,3.75rem)] font-light leading-[1.05] tracking-[-0.02em] text-white">
-          Testimonials
-        </h2>
+        <div className="mt-20 flex flex-wrap items-end justify-between gap-4">
+          <h2 className="font-display text-[clamp(2rem,5vw,3.75rem)] font-light leading-[1.05] tracking-[-0.02em] text-white">
+            Testimonials
+          </h2>
+          <button
+            type="button"
+            onClick={() => setPaused((p) => !p)}
+            aria-pressed={paused}
+            className="flex items-center gap-2 border border-white/15 px-4 py-2.5 font-mono text-[10px] tracking-[0.25em] text-white/80 transition-colors hover:border-[#B8860B] hover:text-white motion-reduce:hidden">
+            {paused ? (
+              <Play className="h-3.5 w-3.5" />
+            ) : (
+              <Pause className="h-3.5 w-3.5" />
+            )}
+            {paused ? "PLAY REVIEWS" : "PAUSE REVIEWS"}
+          </button>
+        </div>
 
         <div className="relative mt-6 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]">
-          <div className="flex w-max gap-6 animate-marquee hover:[animation-play-state:paused] motion-reduce:animate-none">
+          <div
+            className={`flex w-max gap-6 animate-marquee hover:[animation-play-state:paused] motion-reduce:animate-none ${
+              paused ? "[animation-play-state:paused]" : ""
+            }`}>
             {[...TESTIMONIALS, ...TESTIMONIALS].map((t, i) => (
               <figure
                 key={`${t.name}-${i}`}
+                aria-hidden={i >= TESTIMONIALS.length ? "true" : undefined}
                 className="w-[320px] shrink-0 border border-white/10 p-8 sm:w-[420px]">
                 <blockquote className="font-display text-lg font-light italic leading-relaxed text-white/90">
                   &ldquo;{t.quote}&rdquo;
                 </blockquote>
                 <div className="mt-4 flex gap-3 flex-row items-center">
                   <img
-                    src="recommends.png"
-                    alt={t.name}
+                    src="/recommends.png"
+                    alt=""
                     className="w-6 h-6 object-cover"
                   />
-                  <figcaption className="font-mono text-[10px] tracking-[0.25em] text-white/40">
+                  <figcaption className="font-mono text-[10px] tracking-[0.25em] text-white/55">
                     {t.name.toUpperCase()} — {t.source.toUpperCase()}
                   </figcaption>
                 </div>

@@ -11,7 +11,7 @@ export default function ContactPage() {
       <main>
         <section className="bg-[#121212] pt-40 sm:pt-48">
           <div className="mx-auto max-w-4xl px-6 lg:px-10">
-            <p className="font-mono text-[10px] tracking-[0.4em] text-[#4A5D4E]">
+            <p className="font-mono text-[10px] tracking-[0.4em] text-[#6F8E76]">
               CONTACT — SAY HELLO
             </p>
             <h1 className="mt-4 font-display text-[clamp(2.25rem,6vw,4rem)] font-light leading-[1.05] tracking-[-0.02em] text-white">

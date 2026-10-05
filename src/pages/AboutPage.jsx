@@ -11,7 +11,7 @@ export default function AboutPage() {
       <main>
         <section className="bg-[#121212] pt-40 sm:pt-48">
           <div className="mx-auto max-w-3xl px-6 lg:px-10">
-            <p className="font-mono text-[10px] tracking-[0.4em] text-[#4A5D4E]">
+            <p className="font-mono text-[10px] tracking-[0.4em] text-[#6F8E76]">
               ABOUT — THE STUDIO
             </p>
             <h1 className="mt-4 font-display text-[clamp(2.25rem,6vw,4rem)] font-light leading-[1.05] tracking-[-0.02em] text-white">
@@ -32,7 +32,7 @@ export default function AboutPage() {
                 It is faster, tidier and far kinder to your budget than a full
                 refit, and nothing ends up in landfill. Most kitchen
                 transformations take just one to three days, and every job is
-                backed by our twelve-month warranty on lifts and peels.
+                backed by our twelve-month warranty against lifting and peeling.
               </p>
               <p>
                 This site is for homeowners, landlords and commercial clients

@@ -35,19 +35,19 @@ export default function BlueprintDialog({ item, children }) {
 
             <div className="mt-6 space-y-4 text-sm">
               <div>
-                <p className="font-mono text-[10px] tracking-[0.3em] text-[#121212]/40">
+                <p className="font-mono text-[10px] tracking-[0.3em] text-[#121212]/60">
                   ORIGINAL SURFACE
                 </p>
                 <p className="mt-1 text-[#121212]/80">{item.original}</p>
               </div>
               <div>
-                <p className="font-mono text-[10px] tracking-[0.3em] text-[#121212]/40">
+                <p className="font-mono text-[10px] tracking-[0.3em] text-[#121212]/60">
                   WRAP APPLIED
                 </p>
                 <p className="mt-1 text-[#121212]/80">{item.wrap}</p>
               </div>
               <div>
-                <p className="font-mono text-[10px] tracking-[0.3em] text-[#121212]/40">
+                <p className="font-mono text-[10px] tracking-[0.3em] text-[#121212]/60">
                   SPEC
                 </p>
                 <ul className="mt-2 space-y-1.5">

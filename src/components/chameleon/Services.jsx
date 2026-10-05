@@ -37,7 +37,7 @@ const SERVICES = [
     image: IMAGES.fittedWardrobe,
     meta: "04 / FITTED · FREESTANDING",
     blurb:
-      "Fitted wardrobes and bedroom furniture refreshed in any finish — from sleek gloss anthrecite to soft matte sage.",
+      "Fitted wardrobes and bedroom furniture refreshed in any finish — from sleek gloss anthracite to soft matte sage.",
     swatch: "#4A5D4E",
   },
   {
@@ -103,7 +103,7 @@ export default function Services() {
           />
         ))}
       </div>
-      <p className="px-6 font-mono text-[10px] tracking-[0.3em] text-[#121212]/40 lg:px-10">
+      <p className="px-6 font-mono text-[10px] tracking-[0.3em] text-[#121212]/60 lg:px-10">
         ← SCROLL THE RIBBON →
       </p>
     </section>

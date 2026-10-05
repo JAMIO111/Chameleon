@@ -16,7 +16,7 @@ export default function PageNotFound() {
         <div className="pointer-events-none absolute -top-1/4 left-1/2 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-[#B8860B]/10 blur-[120px]" />
 
         <div className="relative mx-auto max-w-3xl px-6 text-center lg:px-10">
-          <p className="font-mono text-[10px] tracking-[0.4em] text-[#4A5D4E]">
+          <p className="font-mono text-[10px] tracking-[0.4em] text-[#6F8E76]">
             ERROR 404 — SURFACE NOT FOUND
           </p>
 

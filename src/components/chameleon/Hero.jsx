@@ -39,6 +39,25 @@ export default function Hero() {
     setDragging(true);
   };
 
+  const onKeyDown = (e) => {
+    const step = e.shiftKey ? 10 : 2;
+    const moves = {
+      ArrowLeft: -step,
+      ArrowDown: -step,
+      ArrowRight: step,
+      ArrowUp: step,
+      PageDown: -10,
+      PageUp: 10,
+    };
+    if (e.key in moves) {
+      e.preventDefault();
+      setPercent((p) => Math.min(100, Math.max(0, p + moves[e.key])));
+    } else if (e.key === "Home" || e.key === "End") {
+      e.preventDefault();
+      setPercent(e.key === "Home" ? 0 : 100);
+    }
+  };
+
   return (
     <section id="top" data-swatch="#121212" className="relative h-screen">
       <div
@@ -76,13 +95,20 @@ export default function Hero() {
         <div
           style={{ left: `${percent}%` }}
           className="absolute inset-y-0 z-30 w-[3px] -translate-x-1/2 bg-white/90 shadow-[0_0_24px_rgba(0,0,0,0.5)]">
-          <button
-            type="button"
-            aria-label="Drag to compare before and after"
+          <div
+            role="slider"
+            tabIndex={0}
+            aria-label="Before and after comparison"
+            aria-orientation="horizontal"
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-valuenow={Math.round(percent)}
+            aria-valuetext={`Before image showing ${Math.round(percent)}%`}
             onPointerDown={startDrag}
-            className="absolute left-1/2 top-36 flex h-12 w-12 -translate-x-1/2 touch-none cursor-ew-resize items-center justify-center rounded-full border-2 border-white bg-[#121212] text-white shadow-[0_0_24px_rgba(0,0,0,0.5)] transition-transform hover:scale-105">
+            onKeyDown={onKeyDown}
+            className="absolute left-1/2 top-36 flex h-12 w-12 -translate-x-1/2 touch-none cursor-ew-resize items-center justify-center rounded-full border-2 border-white bg-[#121212] text-white shadow-[0_0_24px_rgba(0,0,0,0.5)] transition-transform hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#B8860B]">
             <ChevronsLeftRight className="h-5 w-5" />
-          </button>
+          </div>
         </div>
 
         <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black/85 via-black/40 to-transparent px-6 pb-24 pt-48 sm:px-10 lg:px-16">

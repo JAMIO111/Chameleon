@@ -12,35 +12,35 @@ const FAQS = [
   },
   {
     q: "Do you offer free quotes?",
-    a: "We do, yes — just send over some pictures of what you'd like wrapped and we can price it up for you. The pictures must show the whole area so we can see clearly.",
+    a: "We do, yes — just send over some pictures of what you’d like wrapped and we can price it up for you. The pictures must show the whole area so we can see clearly.",
   },
   {
     q: "How durable is the vinyl?",
     a: "It is quite durable, however not indestructible, so we advise the use of a chopping board and pan stand.",
   },
   {
-    q: "Do we get any kind of warranty?",
-    a: "Yes, we offer a 12-month warranty on lifts and peels.",
+    q: "Do you offer a warranty?",
+    a: "Yes, we offer a 12-month warranty against lifting and peeling.",
   },
   {
     q: "How long will it last?",
-    a: "It can last as long as you'd like it to — as long as it's looked after, it can last years.",
+    a: "That depends on how it’s looked after. With proper care it can last for years.",
   },
   {
     q: "Do you require a deposit?",
     a: "Yes, to confirm a booking we require a non-refundable 30% deposit, which comes off the final cost on the day of completion.",
   },
   {
-    q: "Are we able to get a receipt?",
+    q: "Can I get a receipt?",
     a: "Yes — if you send your email address, we can send you a receipt once payment is received.",
   },
   {
-    q: "How do we pay?",
+    q: "How do I pay?",
     a: "Deposits can be paid by bank transfer, and final payments can be made by bank transfer or cash.",
   },
   {
-    q: "How do we choose colours?",
-    a: "We have a variety of colours. You can pop along and have a look at the swatch book, we can send pictures, or if you have an idea of what you'd like and we have the colours available, we can post out samples. There is also a variety of photos on our page to help with ideas.",
+    q: "How do I choose colours?",
+    a: "We have a variety of colours. You can pop along and have a look at the swatch book, we can send pictures, or if you have an idea of what you’d like and we have the colours available, we can post out samples. You’ll also find plenty of photos in our gallery and on our Facebook and Instagram pages to help with ideas.",
   },
   {
     q: "How long does it take to do?",
@@ -52,15 +52,15 @@ const FAQS = [
   },
   {
     q: "Is it best to get tiling and flooring before or after wrapping?",
-    a: "We recommend getting these done first, then the wrapping done last. If you're wanting a new sink, it's also best to get that done first too.",
+    a: "We recommend getting these done first, then the wrapping done last. If you’re wanting a new sink, it’s also best to get that done first too.",
   },
   {
     q: "Can you wrap over tiles?",
-    a: "No, unfortunately we can't.",
+    a: "No, unfortunately we can’t.",
   },
   {
     q: "Can you wrap over cupboards which have been painted?",
-    a: "Again, no sorry — unfortunately we can't.",
+    a: "Again, no sorry — unfortunately we can’t.",
   },
 ];
 
@@ -85,13 +85,17 @@ export default function Faq() {
               value={`faq-${i}`}
               className="border-b border-[#121212]/10">
               <AccordionTrigger className="group gap-4 py-6 text-left hover:no-underline [&>svg]:hidden">
-                <span className="font-mono text-[10px] tracking-[0.25em] text-[#4A5D4E]">
+                <span
+                  aria-hidden="true"
+                  className="font-mono text-[10px] tracking-[0.25em] text-[#4A5D4E]">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span className="flex-1 font-display text-lg font-normal leading-snug text-[#121212]">
                   {item.q}
                 </span>
-                <span className="font-mono text-lg text-[#B8860B] transition-transform duration-300 group-data-[state=open]:rotate-45">
+                <span
+                  aria-hidden="true"
+                  className="font-mono text-lg text-[#B8860B] transition-transform duration-300 group-data-[state=open]:rotate-45">
                   +
                 </span>
               </AccordionTrigger>

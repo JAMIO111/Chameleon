@@ -60,7 +60,7 @@ export default function Footer() {
 
           <div className="flex gap-16">
             <div>
-              <p className="font-mono text-[10px] tracking-[0.3em] text-white/40">
+              <p className="font-mono text-[10px] tracking-[0.3em] text-white/55">
                 SITE
               </p>
               <ul className="mt-4 space-y-2.5 text-sm text-white/70">
@@ -92,7 +92,7 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <p className="font-mono text-[10px] tracking-[0.3em] text-white/40">
+              <p className="font-mono text-[10px] tracking-[0.3em] text-white/55">
                 FIND US
               </p>
               <ul className="mt-4 space-y-2.5 text-sm text-white/70">
@@ -138,7 +138,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-white/10 py-6 font-mono text-[10px] tracking-[0.25em] text-white/40">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-white/10 py-6 font-mono text-[10px] tracking-[0.25em] text-white/55">
           <span>© {new Date().getFullYear()} CHAMELEON HOME WRAPPING</span>
           <span>NEWCASTLE UPON TYNE — SERVING THE NORTH EAST</span>
         </div>

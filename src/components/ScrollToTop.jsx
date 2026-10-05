@@ -20,8 +20,13 @@ export default function ScrollToTop() {
 
     if (hash) {
       const id = getHashId(hash);
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
       const timer = window.setTimeout(() => {
-        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+        document
+          .getElementById(id)
+          ?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
       }, 50);
       return () => window.clearTimeout(timer);
     }

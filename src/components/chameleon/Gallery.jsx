@@ -18,8 +18,8 @@ const WORK = [
     meta: "KITCHEN / MATTE",
     blurb:
       "This kitchen was given a sleek new look with our matte Sahara wrap. The subtle texture and warm tones add a modern, sophisticated touch.",
-    original: "high-gloss grey doors and drawer fronts",
-    wrap: "Matte sahara vinyl",
+    original: "High-gloss grey doors and drawer fronts",
+    wrap: "Matte Sahara vinyl",
     benefits: ["Textured", "Refined", "Contemporary"],
     aspect: ASPECTS[0],
   },
@@ -27,7 +27,8 @@ const WORK = [
     image: IMAGES.matteBlackKitchen,
     title: "Matte black transformation",
     meta: "WORKTOP / MATTE",
-    blurb: "A full kitchen taken from 90s oak to a soft matte charcoal.",
+    blurb:
+      "A plain white worktop wrapped in matte black to match the surrounding cabinetry and complete the kitchen.",
     original: "Plain white worktop",
     wrap: "Premium matte black vinyl, applied to the worktop to match the surrounding cabinetry and give this kitchen a completed look.",
     benefits: ["Matte finish", "Sophisticated", "Modern"],
@@ -36,12 +37,12 @@ const WORK = [
   {
     image: IMAGES.redKitchen,
     title: "Red kitchen transformation",
-    meta: "FURNITURE / TEXTURED",
+    meta: "KITCHEN / SOLID COLOUR",
     blurb:
       "A plain kitchen transformed with a bold red wrap, adding vibrancy and warmth to the space.",
     original: "Plain kitchen cabinets",
-    wrap: "Rich Red vinyl",
-    benefits: ["Rich Colour", "Warmth", "Welcoming"],
+    wrap: "Rich red vinyl",
+    benefits: ["Rich colour", "Warmth", "Welcoming"],
     aspect: ASPECTS[5],
   },
   {
@@ -71,7 +72,7 @@ const WORK = [
     meta: "KITCHEN / WORKTOP",
     blurb: "Open plan kitchen softened with a warm sage wrap.",
     original: "Basic wood kitchen cabinets",
-    wrap: "Matte sage vinyl, Butchers block bench",
+    wrap: "Matte sage vinyl, butcher’s block bench",
     benefits: ["Fresh", "Calm", "Chic"],
     aspect: ASPECTS[2],
   },
